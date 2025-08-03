@@ -1,0 +1,818 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Food Science AI Workshop - Interactive Training Materials</title>
+    <meta name="description" content="Comprehensive training materials for food science students learning AI-assisted research workflows. Includes presentations, datasets, and interactive tools.">
+    <meta name="keywords" content="food science, AI, research, workflow, training, education, machine learning">
+    <meta name="author" content="Michael Borck">
+    
+    <!-- Open Graph / Social Media -->
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="https://michael-borck.github.io/food-science-ai-workshop/">
+    <meta property="og:title" content="Food Science AI Workshop">
+    <meta property="og:description" content="Learn to use AI effectively in food science research with hands-on tools and structured workflows.">
+    
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', system-ui, sans-serif;
+            background: linear-gradient(135deg, #0f172a 0%, #1e293b 100%);
+            color: #e2e8f0;
+            line-height: 1.6;
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+
+        .header {
+            text-align: center;
+            padding: 60px 0;
+            background: linear-gradient(135deg, rgba(59, 130, 246, 0.1) 0%, rgba(139, 92, 246, 0.1) 100%);
+        }
+
+        h1 {
+            font-size: 3rem;
+            margin-bottom: 20px;
+            background: linear-gradient(135deg, #3b82f6, #8b5cf6);
+            background-clip: text;
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            font-weight: 800;
+        }
+
+        .subtitle {
+            font-size: 1.3rem;
+            color: #94a3b8;
+            margin-bottom: 30px;
+            max-width: 800px;
+            margin-left: auto;
+            margin-right: auto;
+        }
+
+        .hero-badges {
+            display: flex;
+            justify-content: center;
+            gap: 15px;
+            flex-wrap: wrap;
+            margin-bottom: 40px;
+        }
+
+        .badge {
+            background: rgba(59, 130, 246, 0.2);
+            color: #60a5fa;
+            padding: 8px 16px;
+            border-radius: 20px;
+            font-size: 14px;
+            font-weight: 600;
+            border: 1px solid rgba(59, 130, 246, 0.3);
+        }
+
+        .cta-buttons {
+            display: flex;
+            justify-content: center;
+            gap: 20px;
+            flex-wrap: wrap;
+        }
+
+        .cta-button {
+            display: inline-block;
+            padding: 15px 30px;
+            border-radius: 12px;
+            text-decoration: none;
+            font-weight: 600;
+            font-size: 16px;
+            transition: all 0.3s ease;
+            text-align: center;
+            min-width: 200px;
+        }
+
+        .primary-cta {
+            background: linear-gradient(135deg, #10b981, #059669);
+            color: white;
+        }
+
+        .primary-cta:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 15px 40px rgba(16, 185, 129, 0.3);
+        }
+
+        .secondary-cta {
+            background: rgba(59, 130, 246, 0.1);
+            color: #60a5fa;
+            border: 2px solid rgba(59, 130, 246, 0.3);
+        }
+
+        .secondary-cta:hover {
+            background: rgba(59, 130, 246, 0.2);
+            transform: translateY(-2px);
+        }
+
+        .quick-start {
+            padding: 80px 0;
+            background: rgba(30, 41, 59, 0.3);
+        }
+
+        .section-title {
+            font-size: 2.5rem;
+            text-align: center;
+            margin-bottom: 20px;
+            color: #f1f5f9;
+        }
+
+        .section-subtitle {
+            text-align: center;
+            color: #94a3b8;
+            font-size: 1.1rem;
+            margin-bottom: 60px;
+            max-width: 600px;
+            margin-left: auto;
+            margin-right: auto;
+        }
+
+        .quick-start-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 30px;
+            margin-bottom: 50px;
+        }
+
+        .quick-start-card {
+            background: rgba(30, 41, 59, 0.7);
+            border: 1px solid #334155;
+            border-radius: 16px;
+            padding: 30px;
+            text-align: center;
+            transition: all 0.3s ease;
+        }
+
+        .quick-start-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 20px 50px rgba(0, 0, 0, 0.3);
+            border-color: #3b82f6;
+        }
+
+        .card-icon {
+            font-size: 3rem;
+            margin-bottom: 20px;
+            display: block;
+        }
+
+        .card-title {
+            font-size: 1.3rem;
+            font-weight: 600;
+            color: #f1f5f9;
+            margin-bottom: 15px;
+        }
+
+        .card-description {
+            color: #94a3b8;
+            margin-bottom: 25px;
+            line-height: 1.6;
+        }
+
+        .card-button {
+            display: inline-block;
+            background: linear-gradient(135deg, #3b82f6, #1d4ed8);
+            color: white;
+            padding: 12px 24px;
+            border-radius: 8px;
+            text-decoration: none;
+            font-weight: 600;
+            transition: all 0.3s ease;
+        }
+
+        .card-button:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 10px 30px rgba(59, 130, 246, 0.3);
+        }
+
+        .features {
+            padding: 80px 0;
+        }
+
+        .features-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 30px;
+        }
+
+        .feature-card {
+            text-align: center;
+            padding: 20px;
+        }
+
+        .feature-icon {
+            font-size: 2.5rem;
+            margin-bottom: 15px;
+            display: block;
+        }
+
+        .feature-title {
+            font-size: 1.1rem;
+            font-weight: 600;
+            color: #f1f5f9;
+            margin-bottom: 10px;
+        }
+
+        .feature-description {
+            color: #94a3b8;
+            font-size: 14px;
+        }
+
+        .resources {
+            padding: 80px 0;
+            background: rgba(30, 41, 59, 0.3);
+        }
+
+        .resources-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 25px;
+        }
+
+        .resource-card {
+            background: rgba(30, 41, 59, 0.7);
+            border: 1px solid #334155;
+            border-radius: 12px;
+            padding: 25px;
+            transition: all 0.3s ease;
+        }
+
+        .resource-card:hover {
+            border-color: #3b82f6;
+            transform: translateY(-2px);
+        }
+
+        .resource-header {
+            display: flex;
+            align-items: center;
+            gap: 12px;
+            margin-bottom: 15px;
+        }
+
+        .resource-icon {
+            font-size: 1.5rem;
+        }
+
+        .resource-title {
+            font-size: 1.1rem;
+            font-weight: 600;
+            color: #f1f5f9;
+        }
+
+        .resource-description {
+            color: #94a3b8;
+            font-size: 14px;
+            margin-bottom: 15px;
+        }
+
+        .resource-links {
+            display: flex;
+            gap: 10px;
+            flex-wrap: wrap;
+        }
+
+        .resource-link {
+            display: inline-block;
+            background: rgba(59, 130, 246, 0.1);
+            color: #60a5fa;
+            padding: 6px 12px;
+            border-radius: 6px;
+            text-decoration: none;
+            font-size: 12px;
+            font-weight: 500;
+            border: 1px solid rgba(59, 130, 246, 0.2);
+            transition: all 0.2s ease;
+        }
+
+        .resource-link:hover {
+            background: rgba(59, 130, 246, 0.2);
+            transform: translateY(-1px);
+        }
+
+        .datasets {
+            padding: 80px 0;
+        }
+
+        .datasets-table {
+            background: rgba(30, 41, 59, 0.7);
+            border: 1px solid #334155;
+            border-radius: 12px;
+            overflow: hidden;
+            margin-top: 30px;
+        }
+
+        .datasets-table table {
+            width: 100%;
+            border-collapse: collapse;
+        }
+
+        .datasets-table th,
+        .datasets-table td {
+            padding: 15px;
+            text-align: left;
+            border-bottom: 1px solid #334155;
+        }
+
+        .datasets-table th {
+            background: rgba(59, 130, 246, 0.1);
+            color: #60a5fa;
+            font-weight: 600;
+        }
+
+        .datasets-table td {
+            color: #cbd5e1;
+        }
+
+        .footer {
+            padding: 60px 0;
+            background: rgba(15, 23, 42, 0.8);
+            text-align: center;
+            border-top: 1px solid #334155;
+        }
+
+        .footer-content {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 40px;
+            margin-bottom: 40px;
+        }
+
+        .footer-section h3 {
+            color: #f1f5f9;
+            margin-bottom: 15px;
+            font-size: 1.1rem;
+        }
+
+        .footer-links {
+            list-style: none;
+        }
+
+        .footer-links li {
+            margin-bottom: 8px;
+        }
+
+        .footer-links a {
+            color: #94a3b8;
+            text-decoration: none;
+            font-size: 14px;
+            transition: color 0.2s ease;
+        }
+
+        .footer-links a:hover {
+            color: #60a5fa;
+        }
+
+        .footer-bottom {
+            padding-top: 30px;
+            border-top: 1px solid #334155;
+            color: #64748b;
+            font-size: 14px;
+        }
+
+        .github-link {
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+            background: rgba(255, 255, 255, 0.1);
+            color: #e2e8f0;
+            padding: 10px 20px;
+            border-radius: 8px;
+            text-decoration: none;
+            font-weight: 500;
+            transition: all 0.3s ease;
+            margin-top: 20px;
+        }
+
+        .github-link:hover {
+            background: rgba(255, 255, 255, 0.15);
+            transform: translateY(-2px);
+        }
+
+        @media (max-width: 768px) {
+            h1 {
+                font-size: 2.2rem;
+            }
+            
+            .cta-buttons {
+                flex-direction: column;
+                align-items: center;
+            }
+            
+            .cta-button {
+                width: 100%;
+                max-width: 300px;
+            }
+            
+            .quick-start-grid,
+            .features-grid,
+            .resources-grid {
+                grid-template-columns: 1fr;
+            }
+            
+            .datasets-table {
+                overflow-x: auto;
+            }
+        }
+
+        /* Animation for elements coming into view */
+        .fade-in {
+            opacity: 0;
+            transform: translateY(20px);
+            animation: fadeInUp 0.6s ease forwards;
+        }
+
+        @keyframes fadeInUp {
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        /* Stagger animations */
+        .fade-in:nth-child(1) { animation-delay: 0.1s; }
+        .fade-in:nth-child(2) { animation-delay: 0.2s; }
+        .fade-in:nth-child(3) { animation-delay: 0.3s; }
+        .fade-in:nth-child(4) { animation-delay: 0.4s; }
+    </style>
+</head>
+<body>
+    <!-- Header -->
+    <header class="header">
+        <div class="container">
+            <h1>🔬 Food Science AI Workshop</h1>
+            <p class="subtitle">
+                Master AI-assisted research workflows with hands-on tools, structured methodologies, and real-world applications for food science students and researchers.
+            </p>
+            
+            <div class="hero-badges">
+                <span class="badge">🎓 Beginner to Advanced</span>
+                <span class="badge">🛠️ Interactive Tools</span>
+                <span class="badge">📊 Real Datasets</span>
+                <span class="badge">🆓 Open Source</span>
+            </div>
+            
+            <div class="cta-buttons">
+                <a href="./interactive-tools/ai-readiness-quiz.html" class="cta-button primary-cta">
+                    🎯 Start with Assessment
+                </a>
+                <a href="./presentations/session-1-understanding-llms.html" class="cta-button secondary-cta">
+                    📚 View Presentations
+                </a>
+            </div>
+        </div>
+    </header>
+
+    <!-- Quick Start -->
+    <section class="quick-start">
+        <div class="container">
+            <h2 class="section-title">🚀 Quick Start Guide</h2>
+            <p class="section-subtitle">
+                Choose your learning path based on your experience level and goals
+            </p>
+            
+            <div class="quick-start-grid">
+                <div class="quick-start-card fade-in">
+                    <span class="card-icon">🎯</span>
+                    <h3 class="card-title">1. Assess Your Level</h3>
+                    <p class="card-description">
+                        Take our 3-minute assessment to get personalized recommendations for your AI experience level.
+                    </p>
+                    <a href="./interactive-tools/ai-readiness-quiz.html" class="card-button">Take Assessment</a>
+                </div>
+                
+                <div class="quick-start-card fade-in">
+                    <span class="card-icon">🛠️</span>
+                    <h3 class="card-title">2. Try the Tools</h3>
+                    <p class="card-description">
+                        Practice the 3-step research workflow with our interactive Research Starter tool and CRAFT framework.
+                    </p>
+                    <a href="./interactive-tools/research-starter.html" class="card-button">Use Research Starter</a>
+                </div>
+                
+                <div class="quick-start-card fade-in">
+                    <span class="card-icon">📚</span>
+                    <h3 class="card-title">3. Follow Sessions</h3>
+                    <p class="card-description">
+                        Work through our comprehensive presentations covering AI fundamentals and hands-on practice.
+                    </p>
+                    <a href="./presentations/session-1-understanding-llms.html" class="card-button">Start Session 1</a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Features -->
+    <section class="features">
+        <div class="container">
+            <h2 class="section-title">✨ What You'll Learn</h2>
+            <p class="section-subtitle">
+                Comprehensive skills for AI-assisted research workflows
+            </p>
+            
+            <div class="features-grid">
+                <div class="feature-card fade-in">
+                    <span class="feature-icon">🧠</span>
+                    <h3 class="feature-title">AI Fundamentals</h3>
+                    <p class="feature-description">Understand how LLMs work, their capabilities, and critical limitations for research applications.</p>
+                </div>
+                
+                <div class="feature-card fade-in">
+                    <span class="feature-icon">🎯</span>
+                    <h3 class="feature-title">CRAFT Framework</h3>
+                    <p class="feature-description">Master structured prompting with Context, Role, Action, Format, and Tone for better AI results.</p>
+                </div>
+                
+                <div class="feature-card fade-in">
+                    <span class="feature-icon">🔬</span>
+                    <h3 class="feature-title">Research Workflow</h3>
+                    <p class="feature-description">Apply the 10-step methodology from idea generation to manuscript preparation.</p>
+                </div>
+                
+                <div class="feature-card fade-in">
+                    <span class="feature-icon">⚡</span>
+                    <h3 class="feature-title">Critical Evaluation</h3>
+                    <p class="feature-description">Learn to verify AI outputs, identify hallucinations, and maintain research integrity.</p>
+                </div>
+                
+                <div class="feature-card fade-in">
+                    <span class="feature-icon">🤝</span>
+                    <h3 class="feature-title">Ethical Use</h3>
+                    <p class="feature-description">Understand proper attribution, academic integrity, and responsible AI collaboration.</p>
+                </div>
+                
+                <div class="feature-card fade-in">
+                    <span class="feature-icon">🎓</span>
+                    <h3 class="feature-title">Practical Skills</h3>
+                    <p class="feature-description">Hands-on practice with real research scenarios and food science applications.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Resources -->
+    <section class="resources">
+        <div class="container">
+            <h2 class="section-title">📚 Learning Resources</h2>
+            <p class="section-subtitle">
+                Everything you need for effective AI-assisted research
+            </p>
+            
+            <div class="resources-grid">
+                <div class="resource-card fade-in">
+                    <div class="resource-header">
+                        <span class="resource-icon">🎭</span>
+                        <h3 class="resource-title">Interactive Presentations</h3>
+                    </div>
+                    <p class="resource-description">
+                        Comprehensive slide decks covering AI fundamentals, research workflows, and hands-on practice sessions.
+                    </p>
+                    <div class="resource-links">
+                        <a href="https://michael-borck.github.io/food-science-ai-workshop/presentations/session-1-understanding-llms.html">Session 1 HTML</a>
+                        <a href="https://michael-borck.github.io/food-science-ai-workshop/presentations/session-1-understanding-llms.pdf">Session 1 PDF</a>
+                        <a href="https://michael-borck.github.io/food-science-ai-workshop/presentations/session-2-hands-on-practice.html">Session 2 HTML</a>
+                        <a href="https://michael-borck.github.io/food-science-ai-workshop/presentations/session-2-hands-on-practice.pdf">Session 2 PDF</a>
+                    </div>
+                </div>
+                
+                <div class="resource-card fade-in">
+                    <div class="resource-header">
+                        <span class="resource-icon">🛠️</span>
+                        <h3 class="resource-title">Interactive Tools</h3>
+                    </div>
+                    <p class="resource-description">
+                        Hands-on tools for assessment, workflow practice, and skill development with immediate feedback.
+                    </p>
+                    <div class="resource-links">
+                        <a href="https://michael-borck.github.io/food-science-ai-workshop/interactive-tools/ai-readiness-quiz.html">Readiness Quiz</a>
+                        <a href="https://michael-borck.github.io/food-science-ai-workshop/interactive-tools/research-starter.html">Research Starter</a>
+                    </div>
+                </div>
+                
+                <div class="resource-card fade-in">
+                    <div class="resource-header">
+                        <span class="resource-icon">📊</span>
+                        <h3 class="resource-title">Practice Datasets</h3>
+                    </div>
+                    <p class="resource-description">
+                        Realistic synthetic datasets covering fermentation, shelf-life, sensory analysis, and process optimization.
+                    </p>
+                    <div class="resource-links">
+                        <a href="https://michael-borck.github.io/food-science-ai-workshop/datasets/">Browse Datasets</a>
+                        <a href="https://michael-borck.github.io/food-science-ai-workshop/datasets/data-descriptions/">Documentation</a>
+                    </div>
+                </div>
+                
+                <div class="resource-card fade-in">
+                    <div class="resource-header">
+                        <span class="resource-icon">🎧</span>
+                        <h3 class="resource-title">Audio & Video Guides</h3>
+                    </div>
+                    <p class="resource-description">
+                        NotebookLM-generated podcasts and explainer videos for flexible learning on-the-go.
+                    </p>
+                    <div class="resource-links">
+                        <a href="https://michael-borck.github.io/food-science-ai-workshop/audio-guides/">Audio Guides</a>
+                        <a href="https://michael-borck.github.io/food-science-ai-workshop/video-guides/">Video Guides</a>
+                    </div>
+                </div>
+                
+                <div class="resource-card fade-in">
+                    <div class="resource-header">
+                        <span class="resource-icon">📖</span>
+                        <h3 class="resource-title">Prompt Templates</h3>
+                    </div>
+                    <p class="resource-description">
+                        Ready-to-use prompt templates and advanced techniques for research applications.
+                    </p>
+                    <div class="resource-links">
+                        <a href="https://michael-borck.github.io/food-science-ai-workshop/resources/prompt-templates.md">Templates</a>
+                        <a href="https://michael-borck.github.io/food-science-ai-workshop/resources/additional-reading.md">Advanced Reading</a>
+                    </div>
+                </div>
+                
+                <div class="resource-card fade-in">
+                    <div class="resource-header">
+                        <span class="resource-icon">🏫</span>
+                        <h3 class="resource-title">Instructor Materials</h3>
+                    </div>
+                    <p class="resource-description">
+                        Implementation guides, customization tips, and assessment tools for educators.
+                    </p>
+                    <div class="resource-links">
+                        <a href="#instructor-guide">Implementation Guide</a>
+                        <a href="#customization">Customization Tips</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Datasets -->
+    <section class="datasets">
+        <div class="container">
+            <h2 class="section-title">📊 Practice Datasets</h2>
+            <p class="section-subtitle">
+                Realistic synthetic datasets designed specifically for learning AI research workflows
+            </p>
+            
+            <div class="datasets-table">
+                <table>
+                    <thead>
+                        <tr>
+                            <th>Dataset</th>
+                            <th>Description</th>
+                            <th>Research Applications</th>
+                            <th>Access</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td><strong>Fermentation Study</strong></td>
+                            <td>Oat milk fermentation with probiotics over 48 hours</td>
+                            <td>Time series analysis, treatment comparisons</td>
+                            <td><a href="https://michael-borck.github.io/food-science-ai-workshop/datasets/fermentation-dataset.csv" class="resource-link">Download CSV</a></td>
+                        </tr>
+                        <tr>
+                            <td><strong>Shelf Life Analysis</strong></td>
+                            <td>Plant-based yogurt quality over 28 days</td>
+                            <td>Degradation modeling, storage conditions</td>
+                            <td><a href="https://michael-borck.github.io/food-science-ai-workshop/datasets/shelf-life-dataset.csv" class="resource-link">Download CSV</a></td>
+                        </tr>
+                        <tr>
+                            <td><strong>Sensory Panel</strong></td>
+                            <td>Consumer preferences for plant-based cheeses</td>
+                            <td>Statistical analysis, demographic trends</td>
+                            <td><a href="https://michael-borck.github.io/food-science-ai-workshop/datasets/sensory-panel-dataset.csv" class="resource-link">Download CSV</a></td>
+                        </tr>
+                        <tr>
+                            <td><strong>Process Optimization</strong></td>
+                            <td>Protein extraction parameter optimization</td>
+                            <td>Response surface methodology, DOE</td>
+                            <td><a href="https://michael-borck.github.io/food-science-ai-workshop/datasets/process-optimization-dataset.csv" class="resource-link">Download CSV</a></td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+            
+            <div style="background: rgba(16, 185, 129, 0.1); border: 1px solid #10b981; border-radius: 12px; padding: 20px; margin-top: 30px; text-align: center;">
+                <h3 style="color: #10b981; margin-bottom: 10px;">🔬 Why Synthetic Data?</h3>
+                <p style="color: #cbd5e1; font-size: 14px;">
+                    These datasets are scientifically realistic but completely artificial, designed for optimal learning without ethical concerns, confidentiality issues, or real-world data messiness.
+                </p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-section">
+                    <h3>🚀 Get Started</h3>
+                    <ul class="footer-links">
+                        <li><a href="./interactive-tools/ai-readiness-quiz.html">AI Readiness Assessment</a></li>
+                        <li><a href="./interactive-tools/research-starter.html">Research Starter Tool</a></li>
+                        <li><a href="./presentations/session-1-understanding-llms.html">Session 1: AI Fundamentals</a></li>
+                        <li><a href="./presentations/session-2-hands-on-practice.html">Session 2: Hands-on Practice</a></li>
+                    </ul>
+                </div>
+                
+                <div class="footer-section">
+                    <h3>📚 Resources</h3>
+                    <ul class="footer-links">
+                        <li><a href="./datasets/">Practice Datasets</a></li>
+                        <li><a href="./resources/prompt-templates.md">Prompt Templates</a></li>
+                        <li><a href="./audio-guides/">Audio Guides</a></li>
+                        <li><a href="./video-guides/">Video Guides</a></li>
+                    </ul>
+                </div>
+                
+                <div class="footer-section">
+                    <h3>🤝 Community</h3>
+                    <ul class="footer-links">
+                        <li><a href="https://github.com/michael-borck/food-science-ai-workshop/issues">Report Issues</a></li>
+                        <li><a href="https://github.com/michael-borck/food-science-ai-workshop/discussions">Discussions</a></li>
+                        <li><a href="https://github.com/michael-borck/food-science-ai-workshop/blob/main/README.md">Contributing Guide</a></li>
+                        <li><a href="#license">License Information</a></li>
+                    </ul>
+                </div>
+                
+                <div class="footer-section">
+                    <h3>ℹ️ About</h3>
+                    <ul class="footer-links">
+                        <li><a href="#philosophy">Educational Philosophy</a></li>
+                        <li><a href="#compatibility">AI Tool Compatibility</a></li>
+                        <li><a href="#customization">Customization Guide</a></li>
+                        <li><a href="#updates">Version History</a></li>
+                    </ul>
+                </div>
+            </div>
+            
+            <div class="footer-bottom">
+                <p>
+                    <strong>Food Science AI Workshop</strong> - Open educational materials for AI-assisted research workflows
+                </p>
+                <p style="margin-top: 10px;">
+                    Licensed under <a href="https://creativecommons.org/licenses/by-nc/4.0/" style="color: #60a5fa;">CC BY-NC 4.0</a> 
+                    • Created by Michael Borck with assistance from Claude (Anthropic)
+                </p>
+                
+                <a href="https://github.com/michael-borck/food-science-ai-workshop" class="github-link">
+                    <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor">
+                        <path d="M12 0c-6.626 0-12 5.373-12 12 0 5.302 3.438 9.8 8.207 11.387.599.111.793-.261.793-.577v-2.234c-3.338.726-4.033-1.416-4.033-1.416-.546-1.387-1.333-1.756-1.333-1.756-1.089-.745.083-.729.083-.729 1.205.084 1.839 1.237 1.839 1.237 1.07 1.834 2.807 1.304 3.492.997.107-.775.418-1.305.762-1.604-2.665-.305-5.467-1.334-5.467-5.931 0-1.311.469-2.381 1.236-3.221-.124-.303-.535-1.524.117-3.176 0 0 1.008-.322 3.301 1.23.957-.266 1.983-.399 3.003-.404 1.02.005 2.047.138 3.006.404 2.291-1.552 3.297-1.23 3.297-1.23.653 1.653.242 2.874.118 3.176.77.84 1.235 1.911 1.235 3.221 0 4.609-2.807 5.624-5.479 5.921.43.372.823 1.102.823 2.222v3.293c0 .319.192.694.801.576 4.765-1.589 8.199-6.086 8.199-11.386 0-6.627-5.373-12-12-12z"/>
+                    </svg>
+                    View on GitHub
+                </a>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        // Simple fade-in animation on scroll
+        const observerOptions = {
+            threshold: 0.1,
+            rootMargin: '0px 0px -50px 0px'
+        };
+
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.style.opacity = '1';
+                    entry.target.style.transform = 'translateY(0)';
+                }
+            });
+        }, observerOptions);
+
+        // Observe all fade-in elements
+        document.addEventListener('DOMContentLoaded', () => {
+            const fadeElements = document.querySelectorAll('.fade-in');
+            fadeElements.forEach(el => observer.observe(el));
+        });
+
+        // Smooth scrolling for anchor links
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                const target = document.querySelector(this.getAttribute('href'));
+                if (target) {
+                    target.scrollIntoView({
+                        behavior: 'smooth',
+                        block: 'start'
+                    });
+                }
+            });
+        });
+    </script>
+</body>
+</html>
