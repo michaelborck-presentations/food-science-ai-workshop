@@ -1,0 +1,957 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Research Idea Starter + CRAFT Guide</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', system-ui, sans-serif;
+            background: linear-gradient(135deg, #0f172a 0%, #1e293b 100%);
+            color: #e2e8f0;
+            min-height: 100vh;
+            padding: 20px;
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        .header {
+            text-align: center;
+            margin-bottom: 40px;
+        }
+
+        h1 {
+            font-size: 2.5rem;
+            margin-bottom: 10px;
+            background: linear-gradient(135deg, #3b82f6, #8b5cf6);
+            background-clip: text;
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+
+        .subtitle {
+            font-size: 1.2rem;
+            color: #94a3b8;
+            margin-bottom: 20px;
+        }
+
+        .tab-nav {
+            display: flex;
+            justify-content: center;
+            gap: 10px;
+            margin-bottom: 40px;
+            flex-wrap: wrap;
+        }
+
+        .tab-button {
+            background: linear-gradient(135deg, #1e293b, #334155);
+            border: 2px solid #475569;
+            border-radius: 12px;
+            padding: 15px 25px;
+            color: #e2e8f0;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            font-weight: 600;
+            font-size: 14px;
+        }
+
+        .tab-button:hover {
+            border-color: #3b82f6;
+            transform: translateY(-2px);
+            box-shadow: 0 10px 30px rgba(59, 130, 246, 0.3);
+        }
+
+        .tab-button.active {
+            background: linear-gradient(135deg, #3b82f6, #1d4ed8);
+            border-color: #60a5fa;
+        }
+
+        .tab-content {
+            display: none;
+        }
+
+        .tab-content.active {
+            display: block;
+        }
+
+        .research-workflow {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 20px;
+            margin-bottom: 40px;
+        }
+
+        .step-card {
+            background: rgba(30, 41, 59, 0.7);
+            border: 2px solid #334155;
+            border-radius: 16px;
+            padding: 25px;
+            text-align: center;
+            transition: all 0.3s ease;
+        }
+
+        .step-card:hover {
+            border-color: #3b82f6;
+            transform: translateY(-5px);
+            box-shadow: 0 15px 40px rgba(59, 130, 246, 0.2);
+        }
+
+        .step-card.completed {
+            border-color: #10b981;
+            background: rgba(16, 185, 129, 0.1);
+        }
+
+        .step-number {
+            font-size: 2rem;
+            font-weight: bold;
+            margin-bottom: 10px;
+            color: #3b82f6;
+        }
+
+        .step-title {
+            font-size: 1.2rem;
+            font-weight: 600;
+            margin-bottom: 10px;
+            color: #f1f5f9;
+        }
+
+        .step-description {
+            font-size: 0.9rem;
+            color: #94a3b8;
+            margin-bottom: 20px;
+        }
+
+        .step-button {
+            background: linear-gradient(135deg, #10b981, #059669);
+            color: white;
+            border: none;
+            padding: 10px 20px;
+            border-radius: 8px;
+            font-size: 14px;
+            font-weight: 600;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            width: 100%;
+        }
+
+        .step-button:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 10px 30px rgba(16, 185, 129, 0.3);
+        }
+
+        .main-content {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 30px;
+            margin-bottom: 40px;
+        }
+
+        .input-section, .output-section {
+            background: rgba(30, 41, 59, 0.7);
+            border-radius: 16px;
+            padding: 30px;
+            border: 1px solid #334155;
+        }
+
+        .section-title {
+            font-size: 1.5rem;
+            margin-bottom: 20px;
+            color: #f1f5f9;
+        }
+
+        .form-group {
+            margin-bottom: 20px;
+        }
+
+        label {
+            display: block;
+            margin-bottom: 8px;
+            font-weight: 600;
+            color: #cbd5e1;
+        }
+
+        input, textarea, select {
+            width: 100%;
+            padding: 12px;
+            border: 2px solid #475569;
+            border-radius: 8px;
+            background: #1e293b;
+            color: #e2e8f0;
+            font-size: 14px;
+            transition: border-color 0.3s ease;
+        }
+
+        input:focus, textarea:focus, select:focus {
+            outline: none;
+            border-color: #3b82f6;
+        }
+
+        textarea {
+            resize: vertical;
+            min-height: 100px;
+        }
+
+        .generate-btn {
+            background: linear-gradient(135deg, #10b981, #059669);
+            color: white;
+            border: none;
+            padding: 15px 30px;
+            border-radius: 8px;
+            font-size: 16px;
+            font-weight: 600;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            width: 100%;
+        }
+
+        .generate-btn:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 10px 30px rgba(16, 185, 129, 0.3);
+        }
+
+        .prompt-output {
+            background: #0f172a;
+            border: 2px solid #334155;
+            border-radius: 12px;
+            padding: 20px;
+            font-family: 'Courier New', monospace;
+            font-size: 14px;
+            line-height: 1.6;
+            min-height: 300px;
+            white-space: pre-wrap;
+            color: #e2e8f0;
+        }
+
+        .copy-btn {
+            background: linear-gradient(135deg, #8b5cf6, #7c3aed);
+            color: white;
+            border: none;
+            padding: 10px 20px;
+            border-radius: 6px;
+            font-size: 14px;
+            cursor: pointer;
+            margin-top: 15px;
+            transition: all 0.3s ease;
+        }
+
+        .copy-btn:hover {
+            transform: translateY(-1px);
+            box-shadow: 0 5px 20px rgba(139, 92, 246, 0.3);
+        }
+
+        .craft-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 20px;
+            margin-bottom: 30px;
+        }
+
+        .craft-card {
+            background: rgba(30, 41, 59, 0.7);
+            border: 2px solid #334155;
+            border-radius: 12px;
+            padding: 20px;
+            text-align: center;
+        }
+
+        .craft-letter {
+            font-size: 2rem;
+            font-weight: bold;
+            color: #3b82f6;
+            margin-bottom: 10px;
+        }
+
+        .craft-title {
+            font-size: 1.1rem;
+            font-weight: 600;
+            color: #f1f5f9;
+            margin-bottom: 8px;
+        }
+
+        .craft-description {
+            font-size: 0.9rem;
+            color: #94a3b8;
+        }
+
+        .example-box {
+            background: rgba(16, 185, 129, 0.1);
+            border: 1px solid #10b981;
+            border-radius: 12px;
+            padding: 20px;
+            margin: 20px 0;
+        }
+
+        .tips-section {
+            background: rgba(139, 92, 246, 0.1);
+            border: 1px solid #8b5cf6;
+            border-radius: 12px;
+            padding: 20px;
+            margin-top: 20px;
+        }
+
+        .tips-title {
+            color: #a78bfa;
+            font-weight: 600;
+            margin-bottom: 10px;
+        }
+
+        .tips-list {
+            color: #cbd5e1;
+            font-size: 14px;
+            line-height: 1.6;
+        }
+
+        .data-summary {
+            background: rgba(59, 130, 246, 0.1);
+            border: 1px solid #3b82f6;
+            border-radius: 8px;
+            padding: 15px;
+            margin: 20px 0;
+        }
+
+        .clear-btn {
+            background: rgba(239, 68, 68, 0.2);
+            border: 1px solid #ef4444;
+            color: #fca5a5;
+            padding: 5px 10px;
+            border-radius: 4px;
+            font-size: 12px;
+            margin-top: 10px;
+            cursor: pointer;
+        }
+
+        .resources-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 20px;
+        }
+
+        .resource-card {
+            background: rgba(30, 41, 59, 0.7);
+            border: 1px solid #334155;
+            border-radius: 12px;
+            padding: 25px;
+        }
+
+        .resource-title {
+            font-size: 1.2rem;
+            font-weight: 600;
+            color: #f1f5f9;
+            margin-bottom: 15px;
+        }
+
+        .resource-content {
+            color: #cbd5e1;
+            font-size: 14px;
+            line-height: 1.6;
+        }
+
+        @media (max-width: 768px) {
+            .main-content {
+                grid-template-columns: 1fr;
+            }
+            
+            .research-workflow {
+                grid-template-columns: 1fr;
+            }
+            
+            .tab-nav {
+                flex-direction: column;
+                align-items: center;
+            }
+            
+            h1 {
+                font-size: 2rem;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="header">
+            <h1>🔬 Research Idea Starter</h1>
+            <p class="subtitle">Generate research ideas, learn CRAFT prompting, and build better AI conversations</p>
+        </div>
+
+        <div class="tab-nav">
+            <div class="tab-button active" onclick="showTab('research')">🚀 Research Starter</div>
+            <div class="tab-button" onclick="showTab('craft')">🎯 CRAFT Framework</div>
+            <div class="tab-button" onclick="showTab('resources')">📚 Prompting Resources</div>
+        </div>
+
+        <!-- Research Starter Tab -->
+        <div class="tab-content active" id="research-tab">
+            <div class="research-workflow">
+                <div class="step-card" id="step1-card">
+                    <div class="step-number">1</div>
+                    <div class="step-title">Generate Ideas</div>
+                    <div class="step-description">Brainstorm 5 research hypotheses for your topic</div>
+                    <button class="step-button" onclick="loadResearchStep(1)">Start Here</button>
+                </div>
+                <div class="step-card" id="step2-card">
+                    <div class="step-number">2</div>
+                    <div class="step-title">Evaluate & Rank</div>
+                    <div class="step-description">Score ideas on feasibility, originality, and impact</div>
+                    <button class="step-button" onclick="loadResearchStep(2)">Evaluate Ideas</button>
+                </div>
+                <div class="step-card" id="step3-card">
+                    <div class="step-number">3</div>
+                    <div class="step-title">Test Feasibility</div>
+                    <div class="step-description">Design a pilot study for your best idea</div>
+                    <button class="step-button" onclick="loadResearchStep(3)">Plan Study</button>
+                </div>
+            </div>
+
+            <div class="main-content">
+                <div class="input-section">
+                    <h2 class="section-title">📝 Input Parameters</h2>
+                    <div id="research-step-content">
+                        <p style="color: #94a3b8; text-align: center; padding: 40px;">Click a step above to get started!</p>
+                    </div>
+                    <button class="generate-btn" onclick="generateResearchPrompt()" id="generate-btn" style="display: none;">🚀 Generate Prompt</button>
+                </div>
+
+                <div class="output-section">
+                    <h2 class="section-title">📋 Generated Prompt</h2>
+                    <div class="prompt-output" id="prompt-output">Your customized research prompt will appear here...</div>
+                    <button class="copy-btn" onclick="copyPrompt()">📋 Copy to Clipboard</button>
+                    
+                    <div class="tips-section">
+                        <div class="tips-title">💡 Tips for This Step</div>
+                        <div class="tips-list" id="step-tips">
+                            Select a step above to see specific guidance and best practices.
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- CRAFT Framework Tab -->
+        <div class="tab-content" id="craft-tab">
+            <h2 style="text-align: center; margin-bottom: 30px; color: #f1f5f9;">🎯 The CRAFT Framework for Better AI Prompts</h2>
+            
+            <div class="example-box">
+                <h3 style="color: #10b981; margin-bottom: 15px;">Why CRAFT Works</h3>
+                <p style="color: #cbd5e1; line-height: 1.6;">
+                    Most disappointing AI results come from vague prompts. CRAFT gives you a structure to write prompts that get better, more relevant results. Think of it like briefing a colleague - the clearer your brief, the better their work.
+                </p>
+            </div>
+
+            <div class="craft-grid">
+                <div class="craft-card">
+                    <div class="craft-letter">C</div>
+                    <div class="craft-title">Context</div>
+                    <div class="craft-description">"This data is from a WA mixed farm over 5 years"</div>
+                </div>
+                <div class="craft-card">
+                    <div class="craft-letter">R</div>
+                    <div class="craft-title">Role</div>
+                    <div class="craft-description">"You are a senior food science researcher"</div>
+                </div>
+                <div class="craft-card">
+                    <div class="craft-letter">A</div>
+                    <div class="craft-title">Action</div>
+                    <div class="craft-description">"Generate 5 innovative hypotheses"</div>
+                </div>
+                <div class="craft-card">
+                    <div class="craft-letter">F</div>
+                    <div class="craft-title">Format</div>
+                    <div class="craft-description">"Present as a structured table"</div>
+                </div>
+                <div class="craft-card">
+                    <div class="craft-letter">T</div>
+                    <div class="craft-title">Tone/Target</div>
+                    <div class="craft-description">"Use academic language for peer review"</div>
+                </div>
+            </div>
+
+            <div class="example-box">
+                <h3 style="color: #10b981; margin-bottom: 15px;">Before and After Example</h3>
+                <div style="background: rgba(239, 68, 68, 0.1); padding: 15px; border-radius: 8px; margin-bottom: 15px;">
+                    <strong style="color: #fca5a5;">❌ Weak Prompt:</strong><br>
+                    <em style="color: #cbd5e1;">"What are some food science research ideas?"</em>
+                </div>
+                <div style="background: rgba(16, 185, 129, 0.1); padding: 15px; border-radius: 8px;">
+                    <strong style="color: #6ee7b7;">✅ CRAFT Prompt:</strong><br>
+                    <em style="color: #cbd5e1;">"You are an experienced food science researcher specializing in plant-based alternatives. Generate 5 innovative research hypotheses for Masters-level studies on oat milk fermentation. Present each with a title, keywords, and 150-word abstract. Focus on practical applications for the food industry."</em>
+                </div>
+            </div>
+
+            <div class="tips-section">
+                <div class="tips-title">💡 CRAFT in Practice</div>
+                <div class="tips-list">
+                    • You don't need all 5 elements every time - use what's relevant<br>
+                    • CRAFT is your conversation starter, not your final answer<br>
+                    • Follow up with refinements: "Make it more specific" or "Add industry context"<br>
+                    • Think of AI as a capable colleague, not a magic tool<br>
+                    • The best prompts invite collaboration, not just commands
+                </div>
+            </div>
+        </div>
+
+        <!-- Resources Tab -->
+        <div class="tab-content" id="resources-tab">
+            <h2 style="text-align: center; margin-bottom: 30px; color: #f1f5f9;">📚 Prompting Resources for Self-Study</h2>
+            
+            <div class="resources-grid">
+                <div class="resource-card">
+                    <div class="resource-title">🗣️ Prompting as Conversation</div>
+                    <div class="resource-content">
+                        <strong>Key Principle:</strong> AI works best as a collaborator, not a one-shot generator.<br><br>
+                        <strong>After your first prompt:</strong><br>
+                        • Ask follow-up questions<br>
+                        • Iterate on the output<br>
+                        • Try role switching: "Now explain this to an undergraduate"<br>
+                        • Refine tone, format, or focus<br><br>
+                        <em>Think of prompts as conversation starters, not endings.</em>
+                    </div>
+                </div>
+
+                <div class="resource-card">
+                    <div class="resource-title">🔗 Prompt Chaining Techniques</div>
+                    <div class="resource-content">
+                        <strong>Multi-step workflows:</strong><br><br>
+                        <strong>Sequential approach:</strong><br>
+                        1. "Summarize this research paper"<br>
+                        2. "What are 3 key limitations?"<br>
+                        3. "How would you address limitation #1?"<br><br>
+                        <strong>Single-prompt chain:</strong><br>
+                        "Analyze this paper, then identify 3 limitations, then suggest solutions. Label each step clearly."
+                    </div>
+                </div>
+
+                <div class="resource-card">
+                    <div class="resource-title">🎭 Role-Based Prompting</div>
+                    <div class="resource-content">
+                        <strong>Assign specific perspectives:</strong><br><br>
+                        • "As a food safety expert..."<br>
+                        • "From an industry perspective..."<br>
+                        • "Thinking like a journal reviewer..."<br>
+                        • "As a grant funding body..."<br><br>
+                        <strong>Debate technique:</strong><br>
+                        "Present two viewpoints on this topic: one cautious, one aggressive. Then synthesize them."
+                    </div>
+                </div>
+
+                <div class="resource-card">
+                    <div class="resource-title">🎯 Prompt Modifiers</div>
+                    <div class="resource-content">
+                        <strong>Quick additions to improve any prompt:</strong><br><br>
+                        • "Use plain English"<br>
+                        • "Be specific with examples"<br>
+                        • "Focus on practical applications"<br>
+                        • "Consider limitations and risks"<br>
+                        • "Make it suitable for peer review"<br>
+                        • "Explain like I'm explaining to my supervisor"<br><br>
+                        <em>These modifiers can transform generic responses into useful, targeted content.</em>
+                    </div>
+                </div>
+
+                <div class="resource-card">
+                    <div class="resource-title">🔄 Iterative Refinement</div>
+                    <div class="resource-content">
+                        <strong>Progressive improvement pattern:</strong><br><br>
+                        1. Start with a basic CRAFT prompt<br>
+                        2. Review the output critically<br>
+                        3. Ask: "What's missing?" or "Make it more specific"<br>
+                        4. Add constraints: "Consider budget limitations"<br>
+                        5. Shift audience: "Now for industry professionals"<br><br>
+                        <em>Each iteration builds on the previous, creating better results through collaboration.</em>
+                    </div>
+                </div>
+
+                <div class="resource-card">
+                    <div class="resource-title">⚠️ Critical Evaluation</div>
+                    <div class="resource-content">
+                        <strong>Always remember:</strong><br><br>
+                        • AI can hallucinate facts and citations<br>
+                        • Verify numerical claims with sources<br>
+                        • Cross-check methodology suggestions<br>
+                        • Use AI for structure and ideas, not truth<br>
+                        • Your domain expertise is essential<br><br>
+                        <strong>Good practice:</strong> "This AI suggestion seems wrong because..." - trust your expertise!
+                    </div>
+                </div>
+            </div>
+
+            <div class="example-box">
+                <h3 style="color: #10b981; margin-bottom: 15px;">🎓 For Deeper Learning</h3>
+                <p style="color: #cbd5e1; line-height: 1.6;">
+                    These resources give you the fundamentals for effective AI collaboration in research. The key is practice - try different approaches, see what works for your research style, and gradually build your prompting vocabulary. Remember: you're not becoming a prompt engineer, you're becoming a more effective researcher who happens to use AI tools.
+                </p>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        // Global state
+        let currentStep = 1;
+        let projectData = {};
+
+        // Research step configurations
+        const researchSteps = {
+            1: {
+                title: "Generate Research Ideas",
+                fields: [
+                    { name: "field", label: "Research Field", type: "select", options: ["Food Science", "Nutrition", "Food Engineering", "Food Microbiology", "Food Chemistry", "Food Safety", "Other"], required: true },
+                    { name: "topic", label: "Research Area/Topic", type: "text", placeholder: "e.g., Plant-based dairy alternatives, Sustainable packaging, Fermentation optimization", required: true },
+                    { name: "level", label: "Academic Level", type: "select", options: ["Undergraduate", "Masters", "PhD", "Professional"], required: true },
+                    { name: "ideas", label: "Number of Ideas", type: "number", value: "5", min: "3", max: "8" },
+                    { name: "context", label: "Additional Context (Optional)", type: "textarea", placeholder: "Any specific focus areas, constraints, industry applications, or background information..." }
+                ],
+                template: `You are an AI research scientist specializing in {field}.
+
+Given the following research area, generate {ideas} distinct and innovative scientific hypotheses suitable for a {level}-level research project.
+
+For each hypothesis, include:
+- A clear, specific Title
+- 3-5 Keywords
+- A concise Abstract (150-200 words)
+- An explanation of its Novelty and Significance
+- Potential practical applications
+
+Research Area: "{topic}"
+
+{context}
+
+Present each hypothesis in a well-structured format with clear headings and numbering.`,
+                tips: [
+                    "Be specific about your research area - 'probiotic fermentation in oat milk' is better than 'food processing'",
+                    "Include any constraints (budget, time, equipment access) in the context field",
+                    "Consider interdisciplinary approaches for more innovative ideas",
+                    "Think about practical applications - what real-world problems does this solve?"
+                ]
+            },
+            2: {
+                title: "Evaluate and Rank Ideas",
+                fields: [
+                    { name: "hypotheses", label: "Your Generated Hypotheses", type: "textarea", placeholder: "Paste the hypotheses from Step 1, or use our sample data to practice...", required: false },
+                    { name: "criteria", label: "Scoring Criteria", type: "select", options: ["Standard (Originality, Feasibility, Impact)", "Custom"], required: true },
+                    { name: "custom_criteria", label: "Custom Criteria (if selected)", type: "textarea", placeholder: "e.g., Industry relevance, Environmental impact, Commercial potential, Regulatory feasibility..." },
+                    { name: "top_select", label: "Number of Top Ideas to Select", type: "number", value: "3", min: "1", max: "5" }
+                ],
+                template: `Here are research hypotheses to evaluate. Please score each from 1-10 on the following criteria:
+
+{criteria}
+
+Present your analysis as:
+1. A detailed scoring table with brief justifications for each score
+2. Ranking from highest to lowest total score
+3. Recommendation of the top {top_select} hypotheses with detailed reasoning
+4. Brief comments on why certain ideas scored higher than others
+
+HYPOTHESES TO EVALUATE:
+{hypotheses}
+
+Focus on practical considerations for a student researcher, including resource requirements, timeline feasibility, and potential for meaningful results.`,
+                tips: [
+                    "If you don't have hypotheses from Step 1, we'll provide sample data to practice with",
+                    "Consider adding field-specific criteria relevant to your research area",
+                    "Don't just accept the AI's scoring - use your domain knowledge to evaluate",
+                    "Look for hypotheses that balance innovation with practical constraints",
+                    "Consider which ideas would be most interesting to industry or academia"
+                ]
+            },
+            3: {
+                title: "Test Feasibility",
+                fields: [
+                    { name: "selected_hypothesis", label: "Selected Hypothesis", type: "textarea", placeholder: "Paste your chosen hypothesis from Step 2, or we'll provide a sample...", required: false },
+                    { name: "study_scale", label: "Study Scale", type: "select", options: ["Pilot/Proof-of-concept", "Small-scale laboratory", "Pilot plant scale", "Industrial validation"], required: true },
+                    { name: "timeline", label: "Available Timeline", type: "text", placeholder: "e.g., 6 months, 1 year, 18 months", required: true },
+                    { name: "budget", label: "Budget Range (Optional)", type: "text", placeholder: "e.g., $5,000, $20,000, Limited budget, Industry-funded" },
+                    { name: "resources", label: "Available Resources", type: "textarea", placeholder: "Equipment, facilities, expertise, industry partnerships available..." }
+                ],
+                template: `Design a feasibility study for this research hypothesis:
+
+{selected_hypothesis}
+
+Create a comprehensive experimental plan that includes:
+
+1. STUDY DESIGN OVERVIEW
+   - Scale: {study_scale}
+   - Timeline: {timeline}
+   - Scope and objectives
+
+2. DETAILED METHODOLOGY
+   - Materials needed (specific equipment, reagents, samples)
+   - Step-by-step experimental procedure
+   - Measurement protocols and data collection methods
+   - Quality control and validation steps
+
+3. RESOURCE REQUIREMENTS
+   - Personnel and expertise needed
+   - Equipment and facility requirements
+   {budget}
+   - Time allocation for each phase
+
+4. RISK ASSESSMENT
+   - Potential technical challenges
+   - Mitigation strategies for common problems
+   - Alternative approaches if main method fails
+
+5. SUCCESS METRICS
+   - Primary and secondary endpoints
+   - Minimum viable results for proof-of-concept
+   - Publication/presentation potential
+
+{resources}
+
+After the experimental plan, generate a realistic sample data table (8-10 rows) showing expected results with appropriate variability and units.`,
+                tips: [
+                    "Start small - pilot studies are faster and cheaper to validate concepts",
+                    "Include proper controls and statistical considerations in your design",
+                    "Consider seasonal factors and raw material availability",
+                    "Think about safety protocols and regulatory requirements early",
+                    "Build in flexibility - initial results often lead to protocol adjustments"
+                ]
+            }
+        };
+
+        // Sample data for when students don't have previous step data
+        const sampleData = {
+            2: `Sample Hypotheses to Practice With:
+
+1. **Optimization of Oat Milk Fermentation Using Novel Probiotic Strains**
+Keywords: oat milk, fermentation, probiotics, plant-based dairy, functional foods
+Abstract: This study investigates the use of novel Lactobacillus strains for fermenting oat milk to create functional plant-based dairy alternatives. The research aims to optimize fermentation conditions (temperature, pH, inoculation rate) to maximize probiotic survival, improve sensory properties, and enhance nutritional value. Expected outcomes include development of a stable, shelf-stable product with high probiotic counts and improved digestibility.
+
+2. **Biodegradable Food Packaging from Agricultural Waste**
+Keywords: sustainable packaging, agricultural waste, biodegradable films, food preservation, circular economy
+Abstract: Development of biodegradable food packaging materials from agricultural waste streams (wheat straw, corn husks). The research focuses on creating films with adequate barrier properties for food preservation while maintaining compostability. This addresses both food waste reduction and plastic pollution in food packaging systems.
+
+3. **Smart Sensors for Real-time Food Safety Monitoring**
+Keywords: food safety, sensors, pathogen detection, IoT, supply chain monitoring
+Abstract: Integration of miniaturized biosensors into food packaging for real-time monitoring of spoilage indicators and pathogen presence. The system would provide continuous safety assessment throughout the supply chain, potentially reducing foodborne illness and food waste.`,
+            
+            3: `Sample Selected Hypothesis:
+
+**Optimization of Oat Milk Fermentation Using Novel Probiotic Strains**
+
+This hypothesis focuses on developing an improved oat milk fermentation process using carefully selected probiotic strains to create a functional plant-based dairy alternative. The research aims to optimize key fermentation parameters including temperature (35-42°C), pH control (6.0-6.8), and inoculation rates (10^6 to 10^8 CFU/mL) to maximize both probiotic viability and sensory acceptability.
+
+The study addresses the growing demand for plant-based dairy alternatives while incorporating functional health benefits through probiotics. Key challenges include maintaining probiotic survival in the oat matrix, achieving desirable texture and flavor profiles, and ensuring product stability during storage.
+
+Expected outcomes include a shelf-stable fermented oat milk product with minimum 10^7 CFU/mL viable probiotics, improved digestibility compared to unfermented oat milk, and sensory properties comparable to conventional yogurt alternatives.`
+        };
+
+        function showTab(tabName) {
+            // Hide all tabs
+            document.querySelectorAll('.tab-content').forEach(tab => tab.classList.remove('active'));
+            document.querySelectorAll('.tab-button').forEach(btn => btn.classList.remove('active'));
+            
+            // Show selected tab
+            document.getElementById(tabName + '-tab').classList.add('active');
+            event.target.classList.add('active');
+        }
+
+        function loadResearchStep(stepNumber) {
+            currentStep = stepNumber;
+            const config = researchSteps[stepNumber];
+            
+            // Update step card highlighting
+            document.querySelectorAll('.step-card').forEach(card => card.classList.remove('completed'));
+            for (let i = 1; i < stepNumber; i++) {
+                document.getElementById(`step${i}-card`).classList.add('completed');
+            }
+            
+            // Build form HTML
+            let formHTML = `
+                <div style="background: rgba(59, 130, 246, 0.1); border: 1px solid #3b82f6; border-radius: 8px; padding: 15px; margin-bottom: 20px;">
+                    <h3 style="color: #60a5fa; margin-bottom: 10px;">Step ${stepNumber}: ${config.title}</h3>
+                    <p style="color: #cbd5e1; font-size: 14px;">Complete this step to build your research project systematically.</p>
+                </div>
+            `;
+
+            // Add data summary if not step 1
+            if (stepNumber > 1) {
+                formHTML += `
+                    <div class="data-summary">
+                        <h4 style="color: #60a5fa; margin-bottom: 10px;">📋 Data From Previous Steps</h4>
+                        <div style="font-size: 12px; color: #cbd5e1;">
+                            ${getDataSummary()}
+                        </div>
+                        <button type="button" class="clear-btn" onclick="clearAllData()">🗑️ Clear All Data</button>
+                    </div>
+                `;
+            }
+
+            // Add form fields
+            config.fields.forEach(field => {
+                const savedValue = projectData[field.name] || field.value || '';
+                
+                let inputHTML = '';
+                switch(field.type) {
+                    case 'text':
+                        inputHTML = `<input type="text" id="${field.name}" name="${field.name}" placeholder="${field.placeholder || ''}" value="${savedValue}" ${field.required ? 'required' : ''}>`;
+                        break;
+                    case 'textarea':
+                        inputHTML = `<textarea id="${field.name}" name="${field.name}" placeholder="${field.placeholder || ''}" ${field.required ? 'required' : ''}>${savedValue}</textarea>`;
+                        break;
+                    case 'select':
+                        inputHTML = `<select id="${field.name}" name="${field.name}" ${field.required ? 'required' : ''}>
+                            ${field.options.map(option => `<option value="${option}" ${savedValue === option ? 'selected' : ''}>${option}</option>`).join('')}
+                        </select>`;
+                        break;
+                    case 'number':
+                        inputHTML = `<input type="number" id="${field.name}" name="${field.name}" value="${savedValue}" min="${field.min || ''}" max="${field.max || ''}" ${field.required ? 'required' : ''}>`;
+                        break;
+                }
+                
+                formHTML += `
+                    <div class="form-group">
+                        <label for="${field.name}">${field.label}${field.required ? ' *' : ''}</label>
+                        ${inputHTML}
+                    </div>
+                `;
+            });
+
+            // Add sample data option for steps 2 and 3
+            if (stepNumber === 2 || stepNumber === 3) {
+                formHTML += `
+                    <div style="background: rgba(16, 185, 129, 0.1); border: 1px solid #10b981; border-radius: 8px; padding: 15px; margin-top: 20px;">
+                        <h4 style="color: #10b981; margin-bottom: 10px;">🎯 Don't have data from previous steps?</h4>
+                        <p style="color: #cbd5e1; font-size: 14px; margin-bottom: 10px;">Click below to use sample data for practice:</p>
+                        <button type="button" onclick="useSampleData(${stepNumber})" style="background: #10b981; color: white; border: none; padding: 8px 16px; border-radius: 6px; font-size: 12px; cursor: pointer;">📝 Use Sample Data</button>
+                    </div>
+                `;
+            }
+            
+            document.getElementById('research-step-content').innerHTML = formHTML;
+            document.getElementById('generate-btn').style.display = 'block';
+            
+            // Update tips
+            document.getElementById('step-tips').innerHTML = config.tips.map(tip => `• ${tip}`).join('<br>');
+            
+            // Clear previous output
+            document.getElementById('prompt-output').textContent = 'Fill in the form above and click "Generate Prompt" to create your customized research prompt...';
+        }
+
+        function useSampleData(stepNumber) {
+            if (stepNumber === 2) {
+                document.getElementById('hypotheses').value = sampleData[2];
+            } else if (stepNumber === 3) {
+                document.getElementById('selected_hypothesis').value = sampleData[3];
+            }
+        }
+
+        function generateResearchPrompt() {
+            const config = researchSteps[currentStep];
+            if (!config) return;
+
+            // Save current form data
+            const formInputs = document.querySelectorAll('#research-step-content input, #research-step-content textarea, #research-step-content select');
+            formInputs.forEach(input => {
+                projectData[input.name] = input.value;
+            });
+
+            // Handle empty required fields with fallbacks
+            if (currentStep === 2 && !projectData.hypotheses) {
+                projectData.hypotheses = sampleData[2];
+            }
+            if (currentStep === 3 && !projectData.selected_hypothesis) {
+                projectData.selected_hypothesis = sampleData[3];
+            }
+
+            // Process template
+            let prompt = config.template;
+            
+            // Replace basic placeholders
+            Object.keys(projectData).forEach(key => {
+                const regex = new RegExp(`\\{${key}\\}`, 'g');
+                prompt = prompt.replace(regex, projectData[key] || '[PLEASE FILL IN]');
+            });
+
+            // Handle special formatting
+            if (projectData.context && projectData.context.trim()) {
+                prompt = prompt.replace('{context}', `Additional Context: ${projectData.context}`);
+            } else {
+                prompt = prompt.replace('{context}', '');
+            }
+
+            if (projectData.budget && projectData.budget.trim()) {
+                prompt = prompt.replace('{budget}', `- Budget considerations: ${projectData.budget}`);
+            } else {
+                prompt = prompt.replace('{budget}', '');
+            }
+
+            if (projectData.resources && projectData.resources.trim()) {
+                prompt = prompt.replace('{resources}', `Available resources: ${projectData.resources}`);
+            } else {
+                prompt = prompt.replace('{resources}', '');
+            }
+
+            if (projectData.criteria === 'Standard (Originality, Feasibility, Impact)') {
+                prompt = prompt.replace('{criteria}', `- Originality (1=common, 10=groundbreaking)
+- Feasibility (1=impossible for student project, 10=easily achievable)  
+- Potential Impact (1=minor contribution, 10=field-changing)`);
+            } else if (projectData.custom_criteria) {
+                prompt = prompt.replace('{criteria}', projectData.custom_criteria);
+            }
+
+            // Clean up any remaining placeholders
+            prompt = prompt.replace(/\{[^}]+\}/g, '[PLEASE FILL IN]');
+
+            document.getElementById('prompt-output').textContent = prompt;
+            updateProgress();
+        }
+
+        function copyPrompt() {
+            const promptText = document.getElementById('prompt-output').textContent;
+            navigator.clipboard.writeText(promptText).then(() => {
+                const btn = document.querySelector('.copy-btn');
+                const originalText = btn.textContent;
+                btn.textContent = '✅ Copied!';
+                setTimeout(() => {
+                    btn.textContent = originalText;
+                }, 2000);
+            });
+        }
+
+        function getDataSummary() {
+            const summary = [];
+            if (projectData.topic) summary.push(`Research Topic: ${projectData.topic}`);
+            if (projectData.field) summary.push(`Field: ${projectData.field}`);
+            if (projectData.level) summary.push(`Level: ${projectData.level}`);
+            if (projectData.selected_hypothesis) summary.push(`Selected Hypothesis: ${projectData.selected_hypothesis.substring(0, 100)}...`);
+            
+            return summary.length > 0 ? summary.join('<br>') : 'No previous data saved yet.';
+        }
+
+        function clearAllData() {
+            if (confirm('This will clear all saved data from previous steps. Are you sure?')) {
+                projectData = {};
+                loadResearchStep(currentStep);
+                updateProgress();
+            }
+        }
+
+        function updateProgress() {
+            // Mark completed steps
+            for (let i = 1; i <= 3; i++) {
+                const config = researchSteps[i];
+                if (config) {
+                    const hasData = config.fields.some(field => projectData[field.name]);
+                    if (hasData) {
+                        document.getElementById(`step${i}-card`).classList.add('completed');
+                    }
+                }
+            }
+        }
+
+        // Initialize on page load
+        document.addEventListener('DOMContentLoaded', () => {
+            // Auto-load step 1 when on research tab
+            // (Nothing to load by default)
+        });
+    </script>
+</body>
+</html>
