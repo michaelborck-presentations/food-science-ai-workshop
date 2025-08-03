@@ -39,6 +39,20 @@ format:
 
 **Today's Goal:** By the end, you'll confidently use AI for your own research projects!
 
+# Leveraging AI to Learn
+* AI tools can help with:
+  * Concept clarification
+  * Methodological evaluation
+  * Task organisation
+  * Interactive learning
+  * Enhance engagement
+
+::: {.notes}
+AI can be a powerful tool for enhancing your learning process. By leveraging AI-generated prompts, questions and summaries, you can engage more deeply with course material, identify knowledge gaps, and reinforce your understanding. AI can help break down complex topics into manageable chunks, create personalised study plans based on your strengths and weaknesses, and even generate interactive quizzes to test your comprehension.
+
+However, it's crucial to use AI as a supplement to, rather than a replacement for, traditional learning methods. AI-powered learning tools should be combined with active reading, note-taking, and discussion with peers and instructors to maximise their effectiveness. By striking the right balance between AI assistance and hands-on learning, you can optimise your educational experience and achieve better learning outcomes.
+:::
+
 # System Check & Troubleshooting
 
 **Quick Tech Inventory**

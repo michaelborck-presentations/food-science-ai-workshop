@@ -285,7 +285,7 @@
         .resource-link {
             display: inline-block;
             background: rgba(59, 130, 246, 0.1);
-            color: #60a5fa;
+            color: #3b82f6;
             padding: 6px 12px;
             border-radius: 6px;
             text-decoration: none;
@@ -297,7 +297,14 @@
 
         .resource-link:hover {
             background: rgba(59, 130, 246, 0.2);
+            color: #60a5fa;
             transform: translateY(-1px);
+        }
+
+        .resource-link:focus {
+            outline: 2px solid #3b82f6;
+            outline-offset: 2px;
+            color: #60a5fa;
         }
 
         .datasets {
@@ -363,13 +370,19 @@
         }
 
         .footer-links a {
-            color: #94a3b8;
+            color: #cbd5e1;
             text-decoration: none;
             font-size: 14px;
             transition: color 0.2s ease;
         }
 
         .footer-links a:hover {
+            color: #60a5fa;
+        }
+
+        .footer-links a:focus {
+            outline: 2px solid #3b82f6;
+            outline-offset: 2px;
             color: #60a5fa;
         }
 

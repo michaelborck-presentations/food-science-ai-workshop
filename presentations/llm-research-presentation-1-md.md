@@ -40,7 +40,158 @@ research. This isn't about fancy prompts - it's about understanding how these
 tools work.
 :::
 
+# Acknowledgements
 
+* This presentation has evolved over several iterations since 2022
+* Recent updates (2025) were developed with assistance from Claude AI, ChatGPT, Perplexity AI and other tools
+* All content has been reviewed, edited, and approved by the presenter
+* The integration of AI tools in developing this material reflects the same principles taught within the workshop
+
+
+# AI's Relevance to Food Science
+
+* Accelerating literature reviews
+* Analysing complex datasets
+* Identifying patterns in sensory evaluation
+* Predicting food shelf-life and stability
+* Enhancing food safety monitoring
+
+::: {.notes}
+AI is increasingly relevant to food science, offering powerful tools for research, data analysis, and optimisation. Machine learning algorithms can uncover patterns and insights in vast food science datasets, while computer vision enables automated quality control and grading of food products. Natural language processing can extract valuable information from research papers and patents to accelerate discovery.
+
+Moreover, AI systems can aid in developing new food products, optimising recipes, and predicting shelf life. They can model complex food systems, simulate processing conditions, and suggest ingredient substitutions. AI also has applications in food safety, such as predicting microbial growth and detecting contaminants. As AI continues to advance, it will likely play an even greater role in driving innovation and efficiency in food science.
+:::
+
+# Core AI Concepts for Food Scientists
+
+* No programming knowledge required!
+* AI systems learn patterns from large amounts of data
+* They generate predictions or responses based on these patterns
+* Food science applications span from literature analysis to predictive modelling
+
+::: {.notes}
+Core AI concepts relevant to food scientists include machine learning, deep learning, and natural language processing. Machine learning involves training algorithms on data to make predictions or decisions, which could be applied to food quality control or optimising production processes. Deep learning uses neural networks to analyse complex data like images or sensor readings, potentially automating food safety inspections or creating new product formulations.
+
+Natural language processing enables AI to understand and generate human language, which food scientists could leverage for tasks like analysing consumer feedback or automatically summarising research papers. Other key concepts include computer vision for visual inspection tasks, predictive modelling for forecasting demand or shelf life, and reinforcement learning for optimising control systems. Understanding these core AI techniques equips food scientists to identify high-impact applications in their field.
+:::
+
+Here’s an updated **Types of AI** section that combines **practical applications** with the **conceptual classifications** you requested:
+
+---
+
+# Types of AI
+
+* **Large Language Models (LLMs)** – *Claude, ChatGPT, Gemini, etc.*
+* **Data Analysis and Machine Learning Tools** – *Python libraries (scikit-learn, TensorFlow), platforms (RapidMiner, Orange)*
+* **Computer Vision / Visual Recognition Systems** – *CNNs, YOLO, OpenCV*
+* **Robotics and Autonomous Systems** – *AI-driven machinery, drones, robotic arms*
+* **Recommendation and Decision Support Systems** – *Knowledge-based AI, decision trees, expert systems*
+* **Speech and Audio AI** – *Speech-to-Text, Text-to-Speech, audio classification*
+
+::: {.notes}
+* **Large Language Models (LLMs)** – *Claude, ChatGPT, Gemini, etc.*
+
+  * Understand and generate human language
+  * Summarise research articles, generate research questions
+  * Draft experimental protocols and reports
+  * Power chatbots and interactive assistants
+
+* **Data Analysis and Machine Learning Tools** – *Python libraries (scikit-learn, TensorFlow), platforms (RapidMiner, Orange)*
+
+  * Perform predictive modeling, clustering, regression, and classification
+  * Analyze experimental or production data
+  * Build custom AI models for research or industry applications
+
+* **Computer Vision / Visual Recognition Systems** – *CNNs, YOLO, OpenCV*
+
+  * Detect food spoilage or contamination from images
+  * Automate quality control in manufacturing
+  * Classify products based on visual characteristics
+
+* **Robotics and Autonomous Systems** – *AI-driven machinery, drones, robotic arms*
+
+  * Automate physical tasks (e.g., food packaging, precision agriculture)
+  * Use sensor data for navigation and manipulation
+
+* **Recommendation and Decision Support Systems** – *Knowledge-based AI, decision trees, expert systems*
+
+  * Guide ingredient selection or process optimization
+  * Suggest experimental designs or production adjustments
+
+* **Speech and Audio AI** – *Speech-to-Text, Text-to-Speech, audio classification*
+
+  * Voice-controlled lab equipment
+  * Automated transcription of research interviews
+  * Detect anomalies in machinery through sound analysis
+:::
+
+
+# **Conceptual Classifications**
+
+* **Narrow AI (Weak AI)**
+* **General AI (Strong AI)**
+* **Reactive Machines**
+* **Self-Learning (Adaptive AI)**
+
+::: {.notes}
+* **Narrow AI (Weak AI)**
+
+  * Designed for specific tasks (e.g., chatbots, image classifiers)
+  * Most AI systems today are narrow AI
+  * Cannot perform tasks outside its trained domain
+
+* **General AI (Strong AI)**
+
+  * Hypothetical future AI that can understand, learn, and apply knowledge across multiple domains
+  * Would have human-like reasoning and adaptability
+  * Does not currently exist
+
+
+* **Reactive Machines**
+
+  * Respond to inputs with predefined actions
+  * No memory or ability to learn from experience
+  * Example: Early chess-playing AIs
+
+* **Self-Learning (Adaptive AI)**
+
+  * Learns from data and experience to improve over time
+  * Includes machine learning, deep learning, and reinforcement learning systems
+  * Example: Modern recommendation engines, autonomous vehicles
+:::
+
+# LLMs can help with:
+  * Summarising key findings from multiple papers
+  * Extracting methodologies
+  * Identifying research gaps
+  * Generating hypotheses
+  * Proposing experimental designs
+  * Writing in your academic voice
+
+::: {.notes}
+LLMs are tool that can help food science researchers analyse papers more efficiently. It uses natural language processing to extract key information from research papers, such as the main findings, methodology, and conclusions. This can save researchers significant time and effort when conducting literature reviews or staying up-to-date with the latest research in their field.
+
+To use Research Assistant, researchers simply need to upload a PDF of the paper they want to analyse. The AI will then generate a summary of the paper's content, highlighting the most important points. Researchers can also ask follow-up questions to delve deeper into specific aspects of the paper. In the live demo, we'll see how Research Assistant can quickly provide an overview of a food science research paper, making it a valuable tool for any researcher looking to streamline their workflow.
+:::
+
+
+# Understanding LLMs Reliability
+
+* Good at 
+  * **Average** bad at Precise
+  * **Small** bad at Large
+* **Hallucinations**: AI can generate plausible but incorrect information
+* **Verification strategies**:
+  * Cross-check with primary sources
+  * Look for citation information
+  * Test with known information first
+  * Use domain expertise to evaluate outputs
+
+::: {.notes}
+Understanding LLMs reliability is crucial for food scientists leveraging these tools in their research and applications. Key factors to consider include the quality and relevance of the training data, the robustness of the AI model, and its performance on validation and test datasets. It's also important to assess the model's ability to generalise to new, unseen data and to handle edge cases and outliers.
+
+Techniques such as cross-validation, error analysis, and sensitivity testing can help gauge an AI model's reliability. Food scientists should also be aware of potential biases in the data or model and take steps to mitigate them. Collaborating with AI experts, conducting thorough testing, and staying updated on best practices can help ensure the responsible and effective use of AI in food science applications.
+:::
 
 # Quick System Check! 📋 
 
@@ -463,6 +614,46 @@ Notice how specific this prompt is. We're not just asking for "ideas" - we're as
 
 **Bottom line:** When in doubt, cite it. Transparency builds trust.
 
+# AI Deep Research: OpenAI vs Perplexity vs Open Source
+
+| Criteria                | Perplexity Deep Research                    | OpenAI Deep Research                            | Open Source Alternative (AgentGPT)               |
+|-------------------------|---------------------------------------------|--------------------------------------------------|--------------------------------------------------|
+| **Speed**               | Fast (Reports in < 3 mins)                  | Moderate (Reports in 5–30 mins)                 | Moderate-Fast (Varies by hardware/setup)         |
+| **Cost**                | Free (5 queries/day)<br>$20/mo (500/day)    | $200/mo (100 queries)                           | Free (Open Source, self-hosted)                  |
+| **Accuracy (Benchmark)**| Moderate (20–21%)                            | High (26.6%)                                     | Variable (Depends on model & tuning)             |
+| **Report Quality**      | Good but occasional factual inaccuracies    | Excellent, structured, comprehensive citations  | Variable, highly customizable                    |
+| **Best For**            | Quick, accessible research with budget constraints| In-depth, accurate, professional/academic research| Customizable solutions, DIY research environments|
+
+**Summary:**
+- **Perplexity:** Ideal for fast, affordable reports; some inaccuracies possible.
+- **OpenAI:** Best for detailed, accurate, structured research with citations.
+- **Open Source (AgentGPT):** Flexible, cost-effective, customizable, but requires setup and tuning.
+
+::: {.notes}
+When comparing AI research tools, Perplexity is best for fast, affordable reports, but may have some inaccuracies. OpenAI excels at detailed, accurate, structured research with citations. Open source options like AgentGPT are flexible, cost-effective, and customisable, but require setup and tuning.
+
+Each tool has strengths and weaknesses depending on the research needs. For quick, budget-friendly reports, Perplexity is a good choice, keeping in mind minor inaccuracies are possible. For thorough, precise research with proper citations, OpenAI is the top pick. Open source AI like AgentGPT offers flexibility and affordability, but demands more technical setup and fine-tuning to achieve optimal results.
+:::
+
+# NotebookLM: Your Personal Research Assistant
+
+**NotebookLM** is an AI-powered tool from Google designed to help you understand and make connections within your own documents. Think of it as a virtual research assistant that only uses the sources you provide.
+
+# How it Works (Simply)
+
+It's like having a conversation with your course materials:
+
+1.  **Upload Your Sources:** Add your PDFs, lecture notes, articles, or Google Docs into a "notebook."
+2.  **Ask Questions:** Ask questions in plain language, just like you would ask a tutor. For example, "What are the main arguments in this paper?" or "Compare the theories from these two lectures."
+3.  **Get Grounded Answers:** NotebookLM provides answers and creates summaries based *only* on the documents you uploaded. Crucially, it provides citations, showing you exactly where it found the information in your sources.
+
+# Why Use It for Study & Research?
+
+* **Understand Complex Topics:** Get clear explanations of difficult concepts from your readings.
+* **Summarize & Synthesize:** Quickly generate summaries of long documents or combine ideas from multiple sources.
+* **Brainstorm & Outline:** Ask it to generate ideas, create study guides, or draft outlines based on your material.
+* **Fact-Checking:** Easily verify information and find supporting evidence within your trusted documents.
+
 
 
 # Live Demo Time! 🚀 
@@ -496,7 +687,9 @@ Notice how specific this prompt is. We're not just asking for "ideas" - we're as
 ::::
 
 # 🗳️ Vote Now!
-Scan QR code or shout out your choice!
+Scan QR code
+
+![](./images/workshop.png)
 
 
 
