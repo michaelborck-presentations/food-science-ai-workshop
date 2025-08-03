@@ -16,21 +16,20 @@ format:
       embed-resources: true
 ---
 
-## Welcome Back! 🚀 {background-color="#1a1a1a"}
-
-### Session 2: Let's Build Something Amazing
-
+# Welcome Back! 
 :::: {.columns}
 ::: {.column width="50%"}
 **What We'll Do:**
+
 - Practice the workflow hands-on
-- Analyze real(istic) food science data
+- Analyse real(istic) food science data
 - Create your own AI research agent
 - Level up your research game
 :::
 
 ::: {.column width="50%"}
 **What You Need:**
+
 - Microsoft Copilot access
 - One of our datasets
 - Your curiosity!
@@ -38,89 +37,118 @@ format:
 :::
 ::::
 
-. . .
+**Today's Goal:** By the end, you'll confidently use AI for your own research projects!
 
-::: {.callout-important}
-**Today's Goal:** By the end, you'll have a personal AI research assistant that knows the 10-step workflow!
-:::
+# System Check & Troubleshooting
 
-::: {.notes}
-Welcome back! Now we move from theory to practice. Everyone should have Copilot open.
-:::
-
----
-
-## System Check & Troubleshooting 🔧
-
-### Quick Tech Inventory
+**Quick Tech Inventory**
 
 **✅ Can you access:**
+
 - Microsoft Copilot (copilot.microsoft.com)
 - File download capability
 - New chat sessions
 
-. . .
-
-### Common Issues & Quick Fixes
+**Common Issues & Quick Fixes**
 
 | Problem | Solution |
 |---------|----------|
-| "Can't upload files" | Try bing.com/chat or ChatGPT |
 | "Response seems generic" | Add "Be specific" to prompts |
 | "AI is confused" | Start new chat session |
 | "Access denied" | Try incognito/private browsing |
 
-. . .
-
-::: {.callout-tip}
 **Help available:** Raise your hand anytime - we'll have micro-breaks every 15 minutes!
-:::
 
----
+# Quick Recap: The 10-Step Workflow
 
-## Quick Recap: The 10-Step Workflow 📋
+ Step | Task | Time | Output |
+|---|------|------|--------|
+| 1 | Idea Generation | 8 min | 5 hypotheses table |
+| 2 | Parallel Exploration | 12 min | 10-15 total ideas |
+| 3 | Feasibility Testing | 10 min | Experimental plan + data |
+| 4 | Optimisation | 15 min | Best parameters |
+| 5 | Full Study | 15 min | Complete methodology |
+| 6 | Component Analysis | 8 min | Key factors identified |
+| 7 | Visualisation | 10 min | Figures + captions |
+| 8 | Writing | 12 min | Full paper draft |
+| 9 | Review | 5 min | Feedback report |
+| 10 | Iteration | 5 min | Refined manuscript |
 
-### The Complete Research Journey ⏱️ *~100 minutes total*
+Today we'll practice Steps 1-3 together, then learn to build systems to handle the rest!
 
-:::: {.columns}
-::: {.column width="50%"}
-**Discovery Phase** *(60 min)*
-1. Idea Generation *(8 min)*
-2. Parallel Exploration *(12 min)*
-3. Feasibility Testing *(10 min)*
-4. Optimization *(15 min)*
-5. Full Execution *(15 min)*
-:::
+# Let's Get Started! 
 
-::: {.column width="50%"}
-**Communication Phase** *(40 min)*
-6. Component Analysis *(8 min)*
-7. Visualization *(10 min)*
-8. Writing *(12 min)*
-9. Review *(5 min)*
-10. Iteration *(5 min)*
-:::
-::::
 
-. . .
-
-::: {.callout-tip}
-Today we'll practice Steps 1-3 together, demo 4-7, then build an agent to do it all!
-:::
-
----
-
-## Let's Get Started! 🎯 {background-color="#1a2c1a"}
-
-### Step 1: Idea Generation *(8 minutes)*
+## Step 1: Idea Generation 
 
 **Everyone follow along:**
 
 1. Open Microsoft Copilot
 2. Copy this prompt exactly:
 
-```text
-You are an AI research scientist specializing in Food Science.
+```
+"What are some food science research ideas?"
+```
+
+# What Did You Notice? 🤔
+
+- Did Copilot generate hypotheses?
+- Were they all truly distinct?
+- How was the formatting?
+- Any surprising ideas?
+- Quality of the abstracts?
+
+
+# **The Problem We Experienced**
+
+- Vague outputs? Missing context.
+- Generic responses? No role assigned.
+- Wrong format? Didn't specify what you wanted.
+
+# Introducing CRAFT: Better Prompts, Better Results
+
+| Key | Section       | Description                               |
+|-----|---------------|-------------------------------------------|
+| **C** | **Context**    | "This is food science research data..."   |
+| **R** | **Role**       | "You are an expert food scientist..."    |
+| **A** | **Action**     | "Generate 5 innovative hypotheses..."    |
+| **F** | **Format**     | "Present as a structured table..."        |
+| **T** | **Tone/Target**| "Use academic language for peer review..."|
+
+**Try it now:** Look at the earlier prompt. Which CRAFT elements were missing? How could you improve it?
+
+**Remember:** CRAFT is your conversation starter, not your final answer. Follow up, refine, iterate!
+
+# CRAFT Analysis
+
+**❌ Before CRAFT (weak example):**
+
+```
+"What are some food science research ideas?"
+```
+or 
+
+```
+"Give me some research ideas about plant milk."
+```
+
+**Missing:**
+- ❌ **Context:** No research level, paper type, or constraints
+- ❌ **Role:** AI doesn't know what expertise to use
+- ❌ **Action:** Vague "some ideas" vs. specific "5 hypotheses"
+- ❌ **Format:** No structure for output
+- ❌ **Tone:** Unclear if academic, industry, or casual
+
+
+# Let's Get Started! (again!)
+
+**Everyone follow along with YOUR topic:**
+
+1. Open Microsoft Copilot
+2. Use this CRAFT template with YOUR research area:
+
+```
+You are an AI research scientist specialising in Food Science.
 Given the following research area, generate 5 distinct and 
 innovative scientific hypotheses suitable for a Masters-level 
 research paper.
@@ -131,115 +159,65 @@ For each hypothesis, include:
 - A short Abstract (under 200 words)
 - An explanation of its Novelty and Significance
 
-Research Area: "Plant-based dairy alternatives"
+Research Area: "[YOUR TOPIC FROM HOMEWORK]"
 ```
 
-::: {.callout-note}
-**Timer:** Take exactly 5 minutes to run this and read the results
-:::
+# What Did You Notice?
 
-::: {.notes}
-Give students 2-3 minutes to run this. Walk around and help anyone struggling.
-:::
+**Share Your Observations** 
 
----
-
-## What Did You Notice? 🤔
-
-### Share Your Observations *(3 minutes)*
-
-:::: {.incremental}
 - Did Copilot generate exactly 5 hypotheses?
 - Were they all truly distinct?
 - How was the formatting?
 - Any surprising ideas?
 - Quality of the abstracts?
-::::
 
-. . .
+**Key Learning:** Even with identical CRAFT structures, AI generates different outputs based on YOUR specific topic. This diversity is valuable!
 
-::: {.callout-important}
-**Key Learning:** Even with identical prompts, AI can generate different outputs. This diversity is a feature, not a bug!
+
+# ✅ **CRAFT Analysis of This Prompt:**
+
+| Element | ✅/❌ | What's There |
+|---------|-------|-------------|
+| **C**ontext | ✅ | "Given the following research area" + "Masters-level research paper" |
+| **R**ole | ✅ | "You are an AI research scientist specialising in Food Science" |
+| **A**ction | ✅ | "generate 5 distinct and innovative scientific hypotheses" |
+| **F**ormat | ✅ | Detailed list: Title, Keywords, Abstract, Novelty explanation |
+| **T**one/Target | ✅ | "scientific hypotheses" + "Masters-level" = academic tone |
+
+::: {.notes}
+**This is Actually a STRONG Prompt!**
+
+**Why it works well:**
+
+- **Specific role:** AI knows to think like a food science researcher
+- **Clear task:** Exactly 5 hypotheses, not vague "some ideas"
+- **Detailed format:** Structured output requirements
+- **Appropriate level:** Masters-level sets the complexity
+- **Rich context:** Specific research area provided
 :::
 
-. . .
+# Did it work?
 
-## Introducing CRAFT: Better Prompts, Better Results 🎯
+**Success Check: ✅**
 
-### The Problem You Just Experienced
-- Vague outputs? Missing context.
-- Generic responses? No role assigned.
-- Wrong format? Didn't specify what you wanted.
-
-. . .
-
-### The CRAFT Solution
-
-| **C** | **Context** | "This is food science research data..." |
-| **R** | **Role** | "You are an expert food scientist..." |
-| **A** | **Action** | "Generate 5 innovative hypotheses..." |
-| **F** | **Format** | "Present as a structured table..." |
-| **T** | **Tone/Target** | "Use academic language for peer review..." |
-
-. . .
-
-::: {.callout-tip}
-**Try it now:** Look at the prompt you just used. Which CRAFT elements were missing? How could you improve it?
-:::
-
-. . .
-
-**Remember:** CRAFT is your conversation starter, not your final answer. Follow up, refine, iterate!
-
-### Success Check: ✅
 - Ideas are specific and detailed
 - Academic language throughout
 - Clear research questions
 
-### Red Flags: ❌
+**Red Flags: ❌**
+
 - Vague or generic suggestions
 - Repetitive ideas
 - No specific methodology mentioned
 
----
+# Step 2: Scoring and Selection
 
-## Exporting Your Results 📊
+**Copy your hypotheses back into Copilot** 
 
-### Making Your Work Persistent
+**New CRAFT prompt:**
 
-**In Copilot:**
-1. Look for the **"Export"** or **"Copy"** button
-2. Options might include:
-   - Copy to clipboard
-   - Export to Word
-   - Export to Excel (for tables)
-
-. . .
-
-**Pro Tip:** Create a folder structure now:
 ```
-Research_Project_[Today's Date]/
-├── 01_Ideas/
-├── 02_Experiments/
-├── 03_Data/
-├── 04_Analysis/
-└── 05_Manuscripts/
-```
-
-. . .
-
-::: {.callout-tip}
-**Organization = Success:** Name files with step numbers so you can track progress!
-:::
-
----
-
-## Step 2: Scoring and Selection 🎯
-
-### Copy your hypotheses back into Copilot *(5 minutes)*
-
-**New prompt:**
-```text
 Here are 5 research hypotheses I generated. 
 Please score each from 1-10 on:
 - Originality (1=common, 10=groundbreaking)
@@ -252,23 +230,17 @@ Explain your reasoning for the scores.
 [PASTE YOUR 5 HYPOTHESES HERE]
 ```
 
-. . .
-
 **Take 3 minutes to run this, then we'll discuss results**
-
-. . .
 
 **Question:** Which hypothesis scored highest? Do you agree with the AI's reasoning?
 
----
+# Step 3: Feasibility Testing
 
-## Step 3: Feasibility Testing 🧪
+**Let's Design an Experiment!**
 
-### Let's Design an Experiment! *(10 minutes)*
+**Select your top hypothesis and use this CRAFT prompt:**
 
-**Select your top hypothesis and use this prompt:**
-
-```text
+```
 I have selected this hypothesis:
 [PASTE YOUR #1 HYPOTHESIS]
 
@@ -288,773 +260,318 @@ After the plan, generate a small table of simulated
 data (5-10 rows) showing what results we might expect.
 ```
 
-::: {.callout-note}
-**Timer:** 7 minutes to run this, 3 minutes to review your results
-:::
-
----
-
-## Checkpoint: Evaluating Your Progress 📊
-
-### Success Metrics for Steps 1-3
+# **Success Metrics for Steps 1-3**
 
 **Your outputs should have:**
 
-:::: {.columns}
-::: {.column width="50%"}
 **✅ Quality Indicators:**
+
 - Specific numerical values
 - Clear timelines
 - Detailed procedures
 - Realistic resource needs
 - Academic language
-:::
 
-::: {.column width="50%"}
 **❌ Warning Signs:**
+
 - Vague instructions
 - Unrealistic timelines
 - Missing key details
 - Generic recommendations
 - No specific measurements
-:::
-::::
 
-. . .
+# Quick Self Assessment
 
-### Quick Poll: How Are We Doing?
+**Quick Poll: How Are We Doing?**
+
 - 🟢 **Green:** My outputs are detailed and actionable
 - 🟡 **Yellow:** Some good parts, some vague parts  
 - 🔴 **Red:** Most outputs are too generic
 
-::: {.callout-tip}
 **If you're yellow/red:** Try adding "Be more specific" to your prompts!
-:::
 
----
+# Working with Real Data (Optional Demo)
 
-## Time for the Data Demo! 📈 {background-color="#1a1a2c"}
+**If You Have Data to Practice With...**
 
-### Your Choice Matters
+**For those who brought data or want to try our sample datasets:**
 
-Let's see which dataset won our poll!
+1. **Upload your CSV** to Copilot
+2. **Ask basic questions** about patterns and trends
+3. **Request simple visualisations**
+4. **Generate interpretations**
 
-. . .
-
-::: {.callout-note}
-## 🎉 The Winner Is...
-[Announce the winning dataset]
-:::
-
-. . .
-
-### Important Disclaimer
-
-::: {.callout-warning}
-**Synthetic Data Notice:** These datasets were created specifically for this demonstration. While the data is simulated, the analysis techniques are 100% real and applicable to your actual research data!
-
-*Datasets created with assistance from Claude (Anthropic)*
-:::
-
----
-
-## Dataset Download & Setup 📁
-
-### Get Ready for Analysis *(3 minutes)*
-
-1. **Click this link:** [Insert GitHub link to winning dataset]
-2. **Download** the CSV file to your computer
-3. **Note the file location** (probably Downloads folder)
-4. **Keep the browser tab open** with the dataset description
-
-. . .
-
-### While You Download...
-
-**Dataset Preview:** [Show brief description of winning dataset structure]
-- **Rows:** X observations
-- **Columns:** Y variables
-- **Study type:** [Fermentation/Shelf-life/Sensory/Process]
-- **Key variables:** [List main measurements]
-
-. . .
-
-::: {.callout-tip}
-**Pro tip:** Real research data often has missing values, errors, and inconsistencies - our clean dataset makes learning easier!
-:::
-
----
-
-## Uploading and Analyzing Data 📊
-
-### Follow Along - Steps 4-5 Demo *(15 minutes)*
-
-**Step 1: Upload** *(2 min)*
-1. **In Copilot**, click the **attachment/paperclip** icon
-2. **Select** your downloaded CSV file
-3. **Wait** for upload confirmation
-
-. . .
-
-**Step 2: Initial Analysis** *(3 min)*
-```text
-I've uploaded a food science dataset. Please:
-1. Describe what type of study this represents
-2. List all the variables/columns and their units
-3. Provide basic statistics (mean, min, max) for numerical columns
-4. Tell me how many observations are in the dataset
-5. Identify any missing or unusual values
+# Sample CRAFT prompt for data:**
 ```
+I've uploaded a food science dataset from [study type/context]. 
+You are an experienced data analyst specialising in food research. 
+Summarise the key findings and suggest 3 areas for deeper 
+investigation that would be suitable for follow-up studies. 
+Present as bullet points suitable for a research meeting, 
+with each point including a brief rationale.
+```
+**Remember:** Always verify AI interpretations of your data!
 
-::: {.callout-note}
-**Take 2 minutes** to run this and read the results carefully
-:::
+
+# C.R.A.F.T Analysis
+
+| Element | ✅/❌ | What's There |
+|---------|-------|-------------|
+| **C**ontext | ✅ | "I've uploaded a dataset form [study/type]" |
+| **R**ole | ✅ | "You are an experienced food research data analyst" |
+| **A**ction | ✅ | "Summarise key findings and suggest 3 areas for deeper investigation" |
+| **F**ormat | ✅ | "Present as bullet points" |
+| **T**one/Target | ✅ | "suitable for a research meeting and rationale" (professional/academic tone) |
 
 ::: {.notes}
-Give students time to upload. Help anyone having issues.
+**Why This Works Well:**
+
+- **Clear context** about the data type
+- **Specific role** that guides AI's analytical approach
+- **Dual action** with exact quantity (3 areas)
+- **Defined format** (bullet points)
+- **Audience-specific tone** (research meeting = professional)
 :::
 
----
+# Building Your Research Process
 
-## Exploratory Data Analysis 🔍
+**From Manual Steps to Systematic Approach**
 
-### Let's Dig Deeper! *(12 minutes total)*
+**What we just did manually:**
 
-**Prompt 1:** *(3 min)*
-```text
-What patterns or trends do you see in this data? 
-Look for relationships between variables, changes over time, 
-and differences between groups/treatments.
+- Step 1: Generated ideas with specific prompts
+- Step 2: Evaluated and ranked systematically  
+- Step 3: Designed feasibility studies
+
+**How to make this repeatable:**
+
+1. **Save your successful prompts** in a document
+2. **Create templates** for your research area
+3. **Build prompt libraries** for different tasks
+4. **Develop your personal workflow**
+
+**The goal:** Turn today's manual process into your efficient research system
+
+# Advanced CRAFT Techniques
+
+**Beyond the Basics**
+
+**Prompt Chaining:**
+
+1. "Generate 5 hypotheses about [topic]"
+2. "Score the above hypotheses for feasibility"
+3. "Design an experiment for the top-ranked hypothesis"
+
+**Role Switching:**
+
+- "As a journal reviewer, critique this hypothesis"
+- "As an industry expert, assess commercial potential"
+- "As a student, explain this in simple terms"
+
+**Iterative Refinement:**
+
+- "Make this more specific"
+- "Add industry applications"
+- "Consider budget constraints"
+- "Include potential risks"
+
+# Your Personal Prompt Library
+
+**Start Building Today**
+
+**Essential Templates to Save:**
+
+**Idea Generation:**
+```
+You are an AI research scientist specialising in [FIELD].
+Generate [NUMBER] innovative hypotheses for [LEVEL]-level 
+research on [TOPIC]. Include title, keywords, abstract, 
+and significance for each.
 ```
 
-. . .
-
-**Prompt 2:** *(3 min)*
-```text
-Which treatment/product/condition performs best? 
-Explain your reasoning with specific numbers from the data.
+**Literature Review:**
+```
+You are an academic researcher. Summarise the current state 
+of research on [TOPIC]. Identify 3 key gaps that warrant 
+further investigation. Use academic tone suitable for 
+peer review.
 ```
 
-. . .
-
-**Prompt 3:** *(3 min)*
-```text
-Are there any concerning or unexpected values? 
-What questions would a peer reviewer ask about this data?
+**Methodology Design:**
+```
+Design a [SCALE] experimental protocol to test [HYPOTHESIS].
+Include materials, procedures, measurements, timeline, and 
+expected challenges. Present as a structured research plan.
 ```
 
-. . .
+# Quality Control and Verification
 
-::: {.callout-tip}
-Notice how we're using natural language instead of coding? This is the power of AI-assisted analysis!
-:::
+**Your AI Safety Checklist**
 
-**Debrief:** *(3 min)* Share one interesting finding with the person next to you
+**Always Check:**
+- ✅ Do the numbers make scientific sense?
+- ✅ Are the methodologies appropriate for the question?
+- ✅ Do timelines and budgets seem realistic?
+- ✅ Are safety and ethical considerations included?
+- ✅ Can you actually access the suggested equipment/materials?
 
----
+**Red Flags:**
+- ❌ Unusually perfect or round numbers
+- ❌ Methodologies that seem too complex or too simple
+- ❌ Missing safety protocols
+- ❌ Unrealistic timelines or budgets
+- ❌ Citations you can't verify
 
-## Creating Visualizations 📊
+**When in doubt:** Ask a follow-up question or consult with supervisors
 
-### A Picture Worth 1000 Data Points *(10 minutes)*
+# Reflection Moment
 
-**Visualization prompt:** *(7 min)*
+**What You've Accomplished Today**
 
-```text
-Create a professional scientific figure showing:
-[CUSTOMIZE BASED ON DATASET]:
-- Fermentation: pH over time for all treatments with error bars
-- Shelf life: Quality score degradation curves by product
-- Sensory: Spider/radar chart comparing all products  
-- Process: 3D surface plot showing yield vs temperature and pH
+**In 30 minutes of hands-on practice:**
+- ✅ Generated research hypotheses for YOUR topic
+- ✅ Systematically evaluated and ranked ideas
+- ✅ Designed feasibility studies
+- ✅ Learned CRAFT framework for better prompts
+- ✅ Built your personal prompt templates
 
-Requirements:
-- Include proper axis labels with units
-- Add a clear legend
-- Use scientific color scheme
-- Write a detailed figure caption
-- Suggest statistical tests for the differences shown
-```
+**Traditional Approach Time:**
+- Literature review to find gaps: 2-3 weeks
+- Hypothesis development: 1-2 weeks
+- Initial experimental design: 1 week
+- **Total: 4-6 weeks**
 
-. . .
+**But remember:** AI accelerates the process - human expertise ensures quality and makes final decisions
 
-**Image troubleshooting:** *(3 min)*
-- Can't see the image? Check browser permissions
-- Image looks wrong? Try "regenerate" or refine the prompt
-- No image capability? The data interpretation is still valuable!
+# Integration with Your Studies
 
----
-
-## Advanced Statistical Analysis 🧮
-
-### Getting Sophisticated *(8 minutes)*
-
-**Let's get statistical:**
-```text
-Perform appropriate statistical analysis for this dataset:
-
-1. Are the differences between groups statistically significant? 
-   Suggest and explain appropriate tests.
-
-2. What correlations exist between variables? 
-   Report correlation coefficients where relevant.
-
-3. Can you build a simple predictive model? 
-   Which variables best predict the main outcome?
-
-4. What would you recommend based on this data? 
-   Provide specific, actionable conclusions.
-
-5. What are the limitations of this analysis?
-   What additional data would strengthen the conclusions?
-```
-
-. . .
-
-::: {.callout-warning}
-**Remember:** AI-generated statistics should be verified with proper statistical software for publication!
-:::
-
-. . .
-
-**Review time:** *(2 min)* Does the statistical approach make sense for your data type?
-
----
-
-## From Data to Presentation 🎤
-
-### The Magic Move *(7 minutes)*
-
-**Final data prompt:**
-
-```text
-Based on all our analysis, create a 3-slide PowerPoint summary:
-
-Slide 1: Study Overview
-- Study design and objectives
-- Key variables measured
-- Sample size and methodology
-
-Slide 2: Key Results 
-- Include the main figure we created
-- 2-3 bullet points of key findings
-- Statistical significance where appropriate
-
-Slide 3: Conclusions and Recommendations
-- Main takeaways for food scientists
-- Practical applications
-- Future research directions
-
-Make it professional and suitable for a research meeting.
-Use clear, scientific language.
-```
-
-. . .
-
-**Watch for:** The export to PowerPoint option! 
-
-::: {.callout-tip}
-**If export fails:** Copy the text and paste into PowerPoint manually - still much faster than writing from scratch!
-:::
-
----
-
-## Reflection Moment 🤔
-
-### What Just Happened?
-
-In **under 30 minutes**, we:
-- ✅ Analyzed a complete dataset
-- ✅ Generated publication-quality figures
-- ✅ Performed statistical analysis
-- ✅ Created a research presentation
-- ✅ Identified future research directions
-
-. . .
-
-### Traditional Approach Time:
-- Data cleaning: 2-3 hours
-- Statistical analysis: 4-6 hours  
-- Figure creation: 2-4 hours
-- Writing: 3-5 hours
-- **Total: 11-18 hours**
-
-. . .
-
-::: {.callout-important}
-**But remember:** We still need human expertise to:
-- Verify statistical validity
-- Ensure scientific accuracy
-- Make strategic decisions
-- Connect to broader theory
-- Design the actual experiments
-:::
-
----
-
-## The Evolution: AI Agents 🤖 {background-color="#2c1a1a"}
-
-### From Manual to Automated
-
-**Current approach:** You copy-paste prompts step by step
-
-**Agent approach:** AI guides YOU through the process
-
-. . .
-
-:::: {.columns}
-::: {.column width="50%"}
-**Manual = You're the Driver**
-- Full control over every step
-- Need to remember all prompts
-- Time-consuming setup
-- Error-prone transitions
-- Easy to skip steps
-:::
-
-::: {.column width="50%"}
-**Agent = You're the Pilot**
-- AI navigates the workflow
-- You make key decisions
-- Faster transitions
-- Consistent quality
-- Guided learning
-:::
-::::
-
-. . .
-
-::: {.callout-tip}
-**Think of it like:** GPS for research - you choose the destination, it finds the best route
-:::
-
----
-
-## Agent Benefits: Why This Matters 💪
-
-### Real-World Applications
-
-:::: {.columns}
-::: {.column width="50%"}
-**For Students:**
-- Never forget workflow steps
-- Consistent high-quality outputs
-- Learn best practices automatically
-- Focus on science, not prompts
-- Build confidence with AI tools
-:::
-
-::: {.column width="50%"}
-**For Researchers:**
-- Standardize lab procedures
-- Train new team members faster
-- Ensure reproducible workflows
-- Scale successful approaches
-- Integrate with existing tools
-:::
-::::
-
-. . .
-
-### Success Stories
-
-::: {.callout-note}
-**"I used to spend hours crafting prompts. Now my agent walks me through everything in minutes, and the quality is consistently better."** - Food Science PhD Student
-:::
-
----
-
-## Creating Your Research Agent 🛠️
-
-### Let's Build Together! *(20 minutes)*
-
-**In Microsoft Copilot:** *(Or ChatGPT/Claude if Copilot doesn't support agents)*
-
-1. Look for **"Create GPT"** or **"Custom Instructions"** option
-2. We'll name it: **"Food Science Research Assistant"**
-
-. . .
-
-**If your platform doesn't support agents:**
-- Don't worry! We'll create a detailed instruction document
-- You can copy-paste these instructions at the start of any chat
-- Same functionality, just manual setup
-
-. . .
-
-**Agent Description:**
-```text
-An expert AI research assistant that guides food science 
-students through a 10-step scientific discovery process, 
-from hypothesis generation to manuscript preparation.
-Maintains conversation context and tracks progress.
-```
-
----
-
-## Agent Instructions: The Brain 📝
-
-### Core Behavior Instructions *(10 minutes)*
-
-**Copy this instruction set:**
-
-```text
-You are an expert AI research scientist specializing in Food Science, 
-designed to guide Masters students through a 10-step research process.
-
-CORE BEHAVIOR:
-1. Always track which step the user is currently on
-2. Introduce each step clearly before asking for input
-3. Execute the step based on user input with high detail
-4. Present results in organized, academic format
-5. Ask if they're ready for the next step or want refinements
-6. Remember context from all previous steps
-7. Provide specific, actionable outputs (not generic advice)
-8. Include time estimates for each step
-
-THE 10 STEPS WITH DETAILS:
-1. Idea Generation (8 min): Generate 5 distinct hypotheses with abstracts
-2. Parallel Exploration (12 min): Score and rank ideas, select top candidates  
-3. Feasibility Testing (10 min): Design minimal experimental protocols
-4. Optimization (15 min): Refine parameters and variables
-5. Full Execution (15 min): Complete methodology and expected outcomes
-6. Component Analysis (8 min): Identify critical success factors
-7. Visualization (10 min): Create figures with scientific captions
-8. Writing (12 min): Draft complete manuscript sections
-9. Review (5 min): Peer review simulation with scoring
-10. Iteration (5 min): Refine based on feedback
-
-Always maintain a friendly, educational tone and explain 
-why each step matters for research success. Provide specific 
-examples relevant to food science when possible.
-```
-
-::: {.callout-tip}
-**Customization tip:** Add your specific research area (fermentation, packaging, etc.) for more targeted help
-:::
-
----
-
-## Testing Your Agent 🧪
-
-### Live Beta Test! *(10 minutes)*
-
-**Someone volunteer to test live!**
-
-**Starter prompt:**
-> "Hello, I'd like help with my research project on [INSERT TOPIC]"
-
-. . .
-
-**What we're watching for:**
-- ✅ Does it introduce Step 1 clearly?
-- ✅ Does it wait for your input before proceeding?
-- ✅ Does it provide specific, detailed outputs?
-- ✅ Does it remember context between steps?
-- ✅ Does it feel like a helpful research partner?
-
-. . .
-
-### Common Issues & Fixes:
-- **Too generic?** → Add "Be specific with examples"
-- **Skips steps?** → Emphasize "one step at a time"
-- **Forgets context?** → Start fresh, might be a long conversation
-
-::: {.callout-tip}
-**Success indicator:** The agent should feel like a knowledgeable lab supervisor, not a rigid script!
-:::
-
----
-
-## Agent Superpowers 💪
-
-### What Makes Agents Special?
-
-:::: {.incremental}
-1. **Memory:** Tracks your progress through all 10 steps automatically
-2. **Consistency:** Same high-quality process every single time
-3. **Guidance:** No need to remember complex prompts or templates
-4. **Adaptation:** Adjusts to your specific research area and level
-5. **Efficiency:** Streamlines the entire workflow with smart transitions
-6. **Learning:** Builds better prompts based on your preferences
-::::
-
-. . .
-
-### Real-World Benefits:
-
-::: {.callout-note}
-**Before Agent:** "What was that prompt for step 7 again? Let me find my notes..."
-
-**With Agent:** "Continue to step 7" → Perfect visualization prompts automatically generated
-:::
-
-. . .
-
-::: {.callout-important}
-Think of it as having a PhD supervisor available 24/7 who never gets tired or forgets your research context!
-:::
-
----
-
-## Advanced Agent Features 🔧
-
-### Level Up Your Assistant *(Optional)*
-
-**Advanced instructions to add:**
-
-```text
-ADVANCED FEATURES:
-- If user uploads data, automatically suggest appropriate analysis
-- For literature reviews, provide citation templates
-- When writing, include proper scientific formatting
-- Suggest relevant statistical tests based on data type
-- Flag potential ethical considerations
-- Recommend journal targets based on research scope
-- Generate conference abstract versions
-- Create grant application outlines
-
-CUSTOMIZATION BY FIELD:
-- Fermentation: Focus on microbiology and biochemistry
-- Packaging: Emphasize materials science and shelf life
-- Nutrition: Include bioavailability and health outcomes
-- Processing: Highlight engineering and food safety aspects
-```
-
-. . .
-
-::: {.callout-tip}
-**Pro tip:** Add these features gradually as you become more comfortable with the basic workflow
-:::
-
----
-
-## Your Research Toolkit 🧰 {background-color="#1a2c1a"}
-
-### What You've Gained Today
-
-✅ **Structured Workflow:** 10-step process from idea to publication
-
-✅ **Practical Skills:** Data analysis without coding expertise
-
-✅ **AI Agent:** Your personal research assistant with institutional memory
-
-✅ **Critical Thinking:** Understanding AI limitations and verification needs
-
-✅ **Time Management:** 100-minute complete research workflow
-
-. . .
-
-### Resources to Take Home:
-- **Enhanced presentation slides** (PDF, HTML, PPTX)
-- **All 4 practice datasets** with documentation
-- **Complete prompt template library** 
-- **Agent instruction templates** (basic + advanced)
-- **Troubleshooting guide** for common issues
-
----
-
-## Real-World Integration 🔄
-
-### Making This Work in Your Studies
+**Making This Work in Real Research**
 
 **This Week:**
-1. **Try the workflow** on your actual research topic
-2. **Customize your agent** with your specific field
-3. **Share with classmates** - collective improvement
-4. **Document what works** - build your personal prompt library
 
-. . .
+1. **Apply the 3-step process** to your current assignments
+2. **Build your prompt library** with successful templates
+3. **Practice CRAFT framework** on different topics
+4. **Share successes** (and failures!) with classmates
 
 **This Month:**
-- Integrate with existing research projects
-- Use for literature reviews and grant applications
-- Train your research group on the workflow
-- Develop field-specific modifications
 
-. . .
+- Use for literature reviews and research proposals
+- Apply to lab report writing and data interpretation
+- Integrate with thesis planning and development
+- Develop field-specific prompt variations
 
-**Best Practices for Long-term Success:**
-- **Always verify** AI outputs with peer-reviewed sources
-- **Keep humans central** to all decision-making
-- **Document your process** for reproducibility
-- **Iterate and improve** based on results
+**This Semester:**
 
----
+- Build comprehensive research workflows
+- Create collaboration templates for group projects
+- Develop peer review and feedback processes
 
-## Ethical Guidelines & Academic Integrity 📜
+# Best Practices for Long-term Success
 
-### Using AI Responsibly in Research
+**Sustainable AI-Assisted Research**
+
+**Do:**
+
+- ✅ **Always verify** AI outputs with peer-reviewed sources
+- ✅ **Keep humans central** to all strategic decisions
+- ✅ **Document your processes** for reproducibility
+- ✅ **Iterate and improve** based on results
+- ✅ **Cite AI assistance** appropriately in academic work
+
+**Don't:**
+
+- ❌ **Accept first outputs** without refinement
+- ❌ **Use AI for final decisions** without human judgment
+- ❌ **Skip verification** of facts and figures
+- ❌ **Plagiarise or misrepresent** AI-generated content
+- ❌ **Ignore institutional** AI policies
+
+# Ethical Guidelines & Academic Integrity
+
+**Using AI Responsibly in Research**
 
 **Required Citation Example:**
-> "Research methodology development was assisted by a custom AI agent based on Microsoft Copilot (Microsoft Corporation, 2024). All generated hypotheses and experimental designs were subsequently validated against peer-reviewed literature. Statistical analyses were verified using [appropriate software]."
 
-. . .
+> "Research methodology development was assisted by Microsoft Copilot (Microsoft Corporation, 2024). All generated hypotheses and experimental designs were subsequently validated against peer-reviewed literature and refined through expert consultation."
 
-**What to Cite:**
+**What to Always Cite:**
+
 - ✅ Hypothesis generation assistance
 - ✅ Experimental design suggestions  
 - ✅ Data analysis approaches
-- ✅ Writing structure and organization
+- ✅ Writing structure and organisation
 
-**What Not to Cite:**
-- Grammar and spell checking
-- Basic calculations
-- Reference formatting
-
-. . .
-
-::: {.callout-warning}
 **Institution-specific guidelines:** Always check your university's AI policy - requirements may vary!
-:::
 
----
+# Next Steps & Advanced Applications
 
-## Next Steps & Advanced Applications 📚
+**Your Research Journey Continues**
 
-### Your Research Journey Continues
+**Immediate Actions:**
 
-:::: {.columns}
-::: {.column width="50%"}
-**Immediate Next Steps:**
-1. Apply workflow to current projects
-2. Experiment with different prompts
-3. Build your personal template library
-4. Share successes (and failures!) with peers
-:::
+1. **Finish your prompt library** with today's successful templates
+2. **Apply the workflow** to a real research question this week
+3. **Experiment with CRAFT variations** for different purposes
+4. **Document what works** and what doesn't
 
-::: {.column width="50%"}
 **Advanced Applications:**
-- Multi-study meta-analyses
+
+- Multi-study research planning
 - Grant proposal development
 - Conference presentation creation
 - Peer review simulation
 - Research collaboration planning
-:::
-::::
 
-. . .
+**Community Building:** Consider forming study groups to share AI research techniques and improve workflows together
 
-### Community & Continuous Learning:
+# Troubleshooting & Support
 
-::: {.callout-tip}
-**Join the conversation:** Consider creating a study group to share AI research techniques and improve workflows together
-:::
-
-. . .
-
-**Resources for Continued Learning:**
-- University AI research guidelines
-- Food science AI application papers
-- Prompt engineering best practices
-- Research methodology updates
-
----
-
-## Troubleshooting & Support 🛠️
-
-### When Things Don't Work
+**When Things Don't Work**
 
 **Common Issues & Solutions:**
 
 | Issue | Quick Fix | Long-term Solution |
 |-------|-----------|-------------------|
-| Agent gives generic responses | Add "Be specific with examples" | Refine instructions with more detail |
-| Forgets previous steps | Start new chat session | Use platform with better memory |
-| Analysis seems wrong | Cross-check with known methods | Always verify with domain experts |
+| Generic responses | Add "Be specific with examples" | Develop more detailed CRAFT prompts |
+| Forgets context | Start new chat session | Use structured conversation management |
+| Wrong methodology | Cross-check with known methods | Build domain expertise verification |
 | Can't upload data | Try different browser/platform | Have multiple platform accounts |
 
-. . .
-
-### Getting Help:
-- **During class:** Immediate assistance available
-- **After class:** Email with specific examples
-- **Peer support:** Form study groups for collaborative problem-solving
-- **Platform updates:** AI tools change rapidly - stay flexible
-
-. . .
-
-::: {.callout-important}
 **Remember:** Technology fails sometimes. The workflow principles remain valuable even when specific tools don't cooperate!
-:::
 
----
-
-## Q&A and Exploration Time 🎯 {background-color="#1a1a1a"}
-
-### Your Questions, Your Projects *(15 minutes)*
-
-**Let's Discuss:**
-- Specific research applications in your field?
-- Technical challenges with your setup?
-- Ethical considerations for your institution?
-- Integration with existing research tools?
-- Customizations for your research area?
-
-. . .
-
-### Try This Now:
-**Live practice:** Pick a research question from your current studies and run it through Steps 1-3 with your new agent!
-
-. . .
-
-**Contact Information:**
-- **Email:** [your-email@curtin.edu.au]
-- **Office hours:** [Insert schedule]
-- **Course materials:** [GitHub repository link]
-
----
-
-## Final Reflection & Success Metrics 📊
-
-### Measuring Your Progress
+**Measuring Your Progress**
 
 **By the end of today, you should be able to:**
-- ✅ Break complex research tasks into manageable steps
-- ✅ Write effective prompts for each workflow stage
-- ✅ Critically evaluate AI-generated outputs
-- ✅ Create and customize your own research agent
+- ✅ Use CRAFT framework to write effective research prompts
+- ✅ Apply the 3-step workflow to any research topic
+- ✅ Critically evaluate AI-generated research suggestions
+- ✅ Build and maintain your personal prompt library
 - ✅ Integrate AI tools with traditional research methods
 
-. . .
-
-### Self-Assessment Questions:
-1. Can you explain the 10-step workflow to a colleague?
+**Self-Assessment Questions:**
+1. Can you explain CRAFT to a colleague?
 2. Do you feel confident starting a research project with AI assistance?
 3. Can you identify when AI outputs need human verification?
 4. Would you recommend this approach to other researchers?
 
-. . .
+**Success indicator:** You're excited to apply this to your own research, not overwhelmed by the complexity!
 
-::: {.callout-tip}
-**Success indicator:** You're excited to try this on your own research, not overwhelmed by the complexity!
-:::
+# Thank You!
 
----
+**You're Now AI-Empowered Researchers!**
 
-## Thank You! 🙏
-
-### You're Now AI-Empowered Researchers!
-
-::: {.callout-tip}
 ## Remember: Amplification, Not Replacement
 You're not replacing your scientific expertise—you're amplifying it with powerful AI tools that handle routine tasks so you can focus on creative thinking and critical analysis.
-:::
 
-. . .
-
-### The Journey Continues:
-- **Today:** You learned the workflow and built your agent
-- **Tomorrow:** You apply it to real research challenges  
+**The Journey Continues:**
+- **Today:** You learned structured workflows and CRAFT framework
+- **Tomorrow:** You apply them to real research challenges  
 - **Next month:** You're mentoring others in AI-assisted research
-- **Next year:** You're publishing papers that showcase the power of human-AI collaboration
+- **Next year:** You're publishing papers that showcase human-AI collaboration
 
-. . .
+**Created with assistance from Claude (Anthropic)** - *demonstrating responsible AI collaboration*
 
-**Created with assistance from Claude (Anthropic)**
+**Happy Researching!** 🚀
 
-### Happy Researching! 🚀
-
-::: {.callout-note}
-**All course materials, including presentations, datasets, audio guides, and interactive tools, will remain available at:** [GitHub Pages URL]
-:::
-
+**All course materials, including presentations, datasets, interactive tools, and resources, available at:** [GitHub Pages URL]

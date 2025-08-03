@@ -19,10 +19,12 @@ By completing this workshop, students will be able to:
 
 ## 🚀 Quick Start
 
+### 🌐 **Live Site**: [https://michael-borck.github.io/food-science-ai-workshop/](https://michael-borck.github.io/food-science-ai-workshop/)
+
 ### For Students
-1. **Take the Assessment**: Start with the [AI Readiness Quiz](./interactive-tools/ai-readiness-quiz.html) to get personalized recommendations
-2. **Try the Tools**: Use the [Research Starter](./interactive-tools/research-starter.html) to practice the workflow
-3. **Follow the Sessions**: Work through [Session 1](./presentations/session-1-understanding-llms.html) and [Session 2](./presentations/session-2-hands-on-practice.html)
+1. **Take the Assessment**: Start with the [AI Readiness Quiz](https://michael-borck.github.io/food-science-ai-workshop/interactive-tools/ai-readiness-quiz.html) to get personalized recommendations
+2. **Try the Tools**: Use the [Research Starter](https://michael-borck.github.io/food-science-ai-workshop/interactive-tools/research-starter.html) to practice the workflow
+3. **Follow the Sessions**: Work through [Session 1](https://michael-borck.github.io/food-science-ai-workshop/presentations/session-1-understanding-llms.html) and [Session 2](https://michael-borck.github.io/food-science-ai-workshop/presentations/session-2-hands-on-practice.html)
 
 ### For Instructors
 1. **Review Materials**: Check the presentation slides and interactive tools
@@ -33,7 +35,8 @@ By completing this workshop, students will be able to:
 
 ```
 ├── 📋 README.md                     # This file
-├── 🏠 index.html                    # Main landing page
+├── 🏠 index.html                    # Main landing page (GitHub Pages)
+├── 🚫 .nojekyll                     # GitHub Pages configuration
 ├── 📊 presentations/                # Workshop presentation slides
 │   ├── session-1-understanding-llms.html
 │   ├── session-1-understanding-llms.pdf
@@ -48,8 +51,10 @@ By completing this workshop, students will be able to:
 │   ├── sensory-panel-dataset.csv
 │   ├── process-optimization-dataset.csv
 │   └── data-descriptions/          # Detailed dataset documentation
-├── 🎧 audio-guides/                 # NotebookLM-generated podcasts
-├── 🎥 video-guides/                 # NotebookLM-generated explainers
+│       ├── fermentation-study.md
+│       ├── shelf-life-analysis.md
+│       ├── sensory-panel.md
+│       └── process-optimization.md
 └── 📚 resources/                    # Additional learning materials
     ├── prompt-templates.md
     └── additional-reading.md
@@ -60,7 +65,7 @@ By completing this workshop, students will be able to:
 ### 🎯 AI Readiness Assessment
 **Purpose**: Determine your AI experience level and get personalized learning recommendations  
 **Time**: 3-4 minutes  
-**Access**: [Take the Quiz](./interactive-tools/ai-readiness-quiz.html)
+**Access**: [Take the Quiz](https://michael-borck.github.io/food-science-ai-workshop/interactive-tools/ai-readiness-quiz.html)
 
 **What you'll get**:
 - Personalized learning path based on your experience
@@ -70,7 +75,7 @@ By completing this workshop, students will be able to:
 ### 🔬 Research Starter Tool
 **Purpose**: Practice the 3-step research workflow with AI assistance  
 **Time**: 15-30 minutes per session  
-**Access**: [Use the Tool](./interactive-tools/research-starter.html)
+**Access**: [Use the Tool](https://michael-borck.github.io/food-science-ai-workshop/interactive-tools/research-starter.html)
 
 **Features**:
 - **Step 1**: Generate research hypotheses using structured prompts
@@ -83,12 +88,12 @@ By completing this workshop, students will be able to:
 
 All datasets are **synthetic/simulated** but scientifically realistic, created specifically for educational purposes:
 
-| Dataset | Description | Use Cases |
-|---------|-------------|-----------|
-| **Fermentation Study** | Oat milk fermentation with probiotics over 48 hours | Time series analysis, treatment comparisons |
-| **Shelf Life Analysis** | Plant-based yogurt quality over 28 days | Degradation modeling, storage conditions |
-| **Sensory Panel** | Consumer preferences for plant-based cheeses | Statistical analysis, demographic trends |
-| **Process Optimization** | Protein extraction parameter optimization | Response surface methodology, DOE |
+| Dataset | Description | Use Cases | Access |
+|---------|-------------|-----------|--------|
+| **Fermentation Study** | Oat milk fermentation with probiotics over 48 hours | Time series analysis, treatment comparisons | [Download CSV](https://michael-borck.github.io/food-science-ai-workshop/datasets/fermentation-dataset.csv) |
+| **Shelf Life Analysis** | Plant-based yogurt quality over 28 days | Degradation modeling, storage conditions | [Download CSV](https://michael-borck.github.io/food-science-ai-workshop/datasets/shelf-life-dataset.csv) |
+| **Sensory Panel** | Consumer preferences for plant-based cheeses | Statistical analysis, demographic trends | [Download CSV](https://michael-borck.github.io/food-science-ai-workshop/datasets/sensory-panel-dataset.csv) |
+| **Process Optimization** | Protein extraction parameter optimization | Response surface methodology, DOE | [Download CSV](https://michael-borck.github.io/food-science-ai-workshop/datasets/process-optimization-dataset.csv) |
 
 ### 🔬 Why Synthetic Data?
 - **Educational focus**: Clear patterns for learning without real-world noise

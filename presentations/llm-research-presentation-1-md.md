@@ -643,10 +643,12 @@ This is a reference slide students can photograph or refer back to.
 
 ## Everything You Need
 
-- **Presentation slides:** [GitHub link will be here]
-- **All datasets:** [GitHub data folder link]
-- **Audio version:** [NotebookLM podcast link]
-- **Video explainer:** [NotebookLM video link]
-- **Quick reference:** [Prompt templates document]
+- **Presentation slides:** 
+- **All datasets:** 
+- **Audio version:** 
+- **Video explainer:** 
+- **Quick reference:** 
+
+![](./images/workshop.png)
 
 **Created with assistance from Claude (Anthropic)**

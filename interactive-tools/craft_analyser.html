@@ -1,0 +1,572 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>CRAFT Prompt Analyzer</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', system-ui, sans-serif;
+            background: linear-gradient(135deg, #0f172a 0%, #1e293b 100%);
+            color: #e2e8f0;
+            min-height: 100vh;
+            padding: 20px;
+        }
+
+        .container {
+            max-width: 1000px;
+            margin: 0 auto;
+        }
+
+        .header {
+            text-align: center;
+            margin-bottom: 40px;
+        }
+
+        h1 {
+            font-size: 2.5rem;
+            margin-bottom: 10px;
+            background: linear-gradient(135deg, #3b82f6, #8b5cf6);
+            background-clip: text;
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+
+        .subtitle {
+            font-size: 1.2rem;
+            color: #94a3b8;
+            margin-bottom: 20px;
+        }
+
+        .craft-overview {
+            background: rgba(30, 41, 59, 0.7);
+            border: 1px solid #334155;
+            border-radius: 12px;
+            padding: 20px;
+            margin-bottom: 30px;
+        }
+
+        .craft-grid {
+            display: grid;
+            grid-template-columns: repeat(5, 1fr);
+            gap: 15px;
+            margin-bottom: 20px;
+        }
+
+        .craft-item {
+            text-align: center;
+            padding: 10px;
+            background: rgba(59, 130, 246, 0.1);
+            border: 1px solid rgba(59, 130, 246, 0.3);
+            border-radius: 8px;
+        }
+
+        .craft-letter {
+            font-size: 1.5rem;
+            font-weight: bold;
+            color: #3b82f6;
+        }
+
+        .craft-title {
+            font-size: 0.9rem;
+            color: #cbd5e1;
+            margin-top: 5px;
+        }
+
+        .analyzer-section {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 30px;
+            margin-bottom: 30px;
+        }
+
+        .input-section, .results-section {
+            background: rgba(30, 41, 59, 0.7);
+            border: 1px solid #334155;
+            border-radius: 16px;
+            padding: 25px;
+        }
+
+        .section-title {
+            font-size: 1.3rem;
+            color: #f1f5f9;
+            margin-bottom: 15px;
+        }
+
+        .prompt-input {
+            width: 100%;
+            min-height: 200px;
+            padding: 15px;
+            background: #1e293b;
+            border: 2px solid #475569;
+            border-radius: 8px;
+            color: #e2e8f0;
+            font-family: 'Courier New', monospace;
+            font-size: 14px;
+            line-height: 1.5;
+            resize: vertical;
+            transition: border-color 0.3s ease;
+        }
+
+        .prompt-input:focus {
+            outline: none;
+            border-color: #3b82f6;
+        }
+
+        .analyze-btn {
+            background: linear-gradient(135deg, #10b981, #059669);
+            color: white;
+            border: none;
+            padding: 12px 24px;
+            border-radius: 8px;
+            font-size: 14px;
+            font-weight: 600;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            margin-top: 15px;
+            width: 100%;
+        }
+
+        .analyze-btn:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 10px 30px rgba(16, 185, 129, 0.3);
+        }
+
+        .results-grid {
+            display: grid;
+            gap: 15px;
+        }
+
+        .craft-result {
+            background: #1e293b;
+            border: 2px solid #334155;
+            border-radius: 8px;
+            padding: 15px;
+            transition: all 0.3s ease;
+        }
+
+        .craft-result.present {
+            border-color: #10b981;
+            background: rgba(16, 185, 129, 0.1);
+        }
+
+        .craft-result.missing {
+            border-color: #ef4444;
+            background: rgba(239, 68, 68, 0.1);
+        }
+
+        .craft-result.partial {
+            border-color: #f59e0b;
+            background: rgba(245, 158, 11, 0.1);
+        }
+
+        .result-header {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            margin-bottom: 10px;
+        }
+
+        .result-icon {
+            font-size: 1.2rem;
+        }
+
+        .result-title {
+            font-weight: 600;
+            color: #f1f5f9;
+        }
+
+        .result-status {
+            margin-left: auto;
+            padding: 4px 8px;
+            border-radius: 4px;
+            font-size: 12px;
+            font-weight: 600;
+        }
+
+        .status-present {
+            background: #10b981;
+            color: white;
+        }
+
+        .status-partial {
+            background: #f59e0b;
+            color: white;
+        }
+
+        .status-missing {
+            background: #ef4444;
+            color: white;
+        }
+
+        .result-feedback {
+            color: #cbd5e1;
+            font-size: 14px;
+            line-height: 1.4;
+        }
+
+        .overall-score {
+            background: rgba(59, 130, 246, 0.1);
+            border: 1px solid #3b82f6;
+            border-radius: 12px;
+            padding: 20px;
+            text-align: center;
+            margin-bottom: 20px;
+        }
+
+        .score-number {
+            font-size: 2rem;
+            font-weight: bold;
+            color: #3b82f6;
+        }
+
+        .score-label {
+            color: #cbd5e1;
+            font-size: 14px;
+        }
+
+        .examples-section {
+            background: rgba(30, 41, 59, 0.7);
+            border: 1px solid #334155;
+            border-radius: 16px;
+            padding: 25px;
+        }
+
+        .example {
+            background: #1e293b;
+            border: 1px solid #334155;
+            border-radius: 8px;
+            padding: 15px;
+            margin-bottom: 15px;
+        }
+
+        .example-label {
+            color: #10b981;
+            font-weight: 600;
+            margin-bottom: 8px;
+        }
+
+        .example-text {
+            font-family: 'Courier New', monospace;
+            color: #e2e8f0;
+            font-size: 13px;
+            line-height: 1.4;
+            white-space: pre-wrap;
+        }
+
+        .try-example-btn {
+            background: rgba(59, 130, 246, 0.2);
+            color: #60a5fa;
+            border: 1px solid rgba(59, 130, 246, 0.3);
+            padding: 6px 12px;
+            border-radius: 4px;
+            font-size: 12px;
+            cursor: pointer;
+            margin-top: 8px;
+            transition: all 0.2s ease;
+        }
+
+        .try-example-btn:hover {
+            background: rgba(59, 130, 246, 0.3);
+        }
+
+        @media (max-width: 768px) {
+            .analyzer-section {
+                grid-template-columns: 1fr;
+            }
+            
+            .craft-grid {
+                grid-template-columns: repeat(2, 1fr);
+            }
+            
+            h1 {
+                font-size: 2rem;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="header">
+            <h1>🎯 CRAFT Prompt Analyzer</h1>
+            <p class="subtitle">Analyze your prompts against the CRAFT framework for better AI results</p>
+        </div>
+
+        <div class="craft-overview">
+            <h2 style="color: #f1f5f9; margin-bottom: 15px;">The CRAFT Framework</h2>
+            <div class="craft-grid">
+                <div class="craft-item">
+                    <div class="craft-letter">C</div>
+                    <div class="craft-title">Context</div>
+                </div>
+                <div class="craft-item">
+                    <div class="craft-letter">R</div>
+                    <div class="craft-title">Role</div>
+                </div>
+                <div class="craft-item">
+                    <div class="craft-letter">A</div>
+                    <div class="craft-title">Action</div>
+                </div>
+                <div class="craft-item">
+                    <div class="craft-letter">F</div>
+                    <div class="craft-title">Format</div>
+                </div>
+                <div class="craft-item">
+                    <div class="craft-letter">T</div>
+                    <div class="craft-title">Tone/Target</div>
+                </div>
+            </div>
+            <p style="color: #94a3b8; font-size: 14px; text-align: center;">
+                Enter your prompt below to see how well it follows the CRAFT framework
+            </p>
+        </div>
+
+        <div class="analyzer-section">
+            <div class="input-section">
+                <h2 class="section-title">📝 Enter Your Prompt</h2>
+                <textarea 
+                    class="prompt-input" 
+                    id="prompt-input"
+                    placeholder="Paste your AI prompt here and click 'Analyze' to see how well it follows the CRAFT framework...
+
+Example:
+You are an AI research scientist specializing in Food Science. Generate 5 innovative hypotheses for Masters-level research on plant-based dairy alternatives. Present as a structured list with titles and abstracts."
+                ></textarea>
+                <button class="analyze-btn" onclick="analyzePrompt()">🔍 Analyze Prompt</button>
+            </div>
+
+            <div class="results-section">
+                <h2 class="section-title">📊 CRAFT Analysis</h2>
+                <div id="results-container">
+                    <p style="color: #94a3b8; text-align: center; padding: 40px;">
+                        Enter a prompt and click "Analyze" to see detailed CRAFT feedback
+                    </p>
+                </div>
+            </div>
+        </div>
+
+        <div class="examples-section">
+            <h2 class="section-title">💡 Example Prompts</h2>
+            
+            <div class="example">
+                <div class="example-label">❌ Weak Prompt (Missing CRAFT Elements)</div>
+                <div class="example-text">What are some food science research ideas?</div>
+                <button class="try-example-btn" onclick="tryExample('What are some food science research ideas?')">Try This Example</button>
+            </div>
+
+            <div class="example">
+                <div class="example-label">✅ Strong CRAFT Prompt</div>
+                <div class="example-text">You are an AI research scientist specializing in Food Science. Given the following research area, generate 5 distinct and innovative scientific hypotheses suitable for a Masters-level research paper.
+
+For each hypothesis, include:
+- A clear Title
+- 3-5 Keywords
+- A short Abstract (under 200 words)
+- An explanation of its Novelty and Significance
+
+Research Area: "Plant-based dairy alternatives"</div>
+                <button class="try-example-btn" onclick="tryExample(`You are an AI research scientist specializing in Food Science. Given the following research area, generate 5 distinct and innovative scientific hypotheses suitable for a Masters-level research paper.
+
+For each hypothesis, include:
+- A clear Title
+- 3-5 Keywords
+- A short Abstract (under 200 words)
+- An explanation of its Novelty and Significance
+
+Research Area: \"Plant-based dairy alternatives\"`)">Try This Example</button>
+            </div>
+
+            <div class="example">
+                <div class="example-label">✅ Data Analysis CRAFT Prompt</div>
+                <div class="example-text">I've uploaded a food science dataset. You are an experienced data analyst. Summarize the key findings and suggest 3 areas for deeper investigation. Present as bullet points suitable for a research meeting.</div>
+                <button class="try-example-btn" onclick="tryExample(`I've uploaded a food science dataset. You are an experienced data analyst. Summarize the key findings and suggest 3 areas for deeper investigation. Present as bullet points suitable for a research meeting.`)">Try This Example</button>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        function analyzePrompt() {
+            const prompt = document.getElementById('prompt-input').value.trim();
+            
+            if (!prompt) {
+                document.getElementById('results-container').innerHTML = `
+                    <p style="color: #ef4444; text-align: center; padding: 40px;">
+                        Please enter a prompt to analyze
+                    </p>
+                `;
+                return;
+            }
+
+            const analysis = analyzeCRAFT(prompt);
+            displayResults(analysis);
+        }
+
+        function analyzeCRAFT(prompt) {
+            const lowercasePrompt = prompt.toLowerCase();
+            
+            // Context detection
+            const contextKeywords = [
+                'given', 'based on', 'considering', 'in the context of', 'for', 'about',
+                'dataset', 'data', 'research area', 'field', 'study', 'project',
+                'masters', 'phd', 'undergraduate', 'student', 'academic', 'paper'
+            ];
+            
+            // Role detection
+            const roleKeywords = [
+                'you are', 'act as', 'assume the role', 'as a', 'as an',
+                'scientist', 'researcher', 'analyst', 'expert', 'specialist',
+                'advisor', 'consultant', 'assistant', 'tutor'
+            ];
+            
+            // Action detection  
+            const actionKeywords = [
+                'generate', 'create', 'write', 'analyze', 'summarize', 'explain',
+                'design', 'develop', 'identify', 'suggest', 'recommend', 'evaluate',
+                'compare', 'assess', 'review', 'examine'
+            ];
+            
+            // Format detection
+            const formatKeywords = [
+                'present as', 'format as', 'structure as', 'organize as',
+                'list', 'table', 'bullet points', 'paragraphs', 'sections',
+                'numbered', 'structured', 'include:', 'with:', 'containing'
+            ];
+            
+            // Tone/Target detection
+            const toneKeywords = [
+                'academic', 'professional', 'scientific', 'suitable for',
+                'appropriate for', 'targeted at', 'level', 'audience',
+                'peer review', 'journal', 'conference', 'meeting'
+            ];
+
+            function checkElement(keywords, prompt, elementName) {
+                const matches = keywords.filter(keyword => prompt.includes(keyword));
+                let status, feedback;
+                
+                if (matches.length >= 2) {
+                    status = 'present';
+                    feedback = `Strong ${elementName.toLowerCase()} provided. Found: ${matches.slice(0, 2).join(', ')}.`;
+                } else if (matches.length === 1) {
+                    status = 'partial';
+                    feedback = `Some ${elementName.toLowerCase()} present (${matches[0]}), but could be more specific.`;
+                } else {
+                    status = 'missing';
+                    feedback = `No clear ${elementName.toLowerCase()} detected. Consider adding specific ${elementName.toLowerCase()} information.`;
+                }
+                
+                return { status, feedback, matches };
+            }
+
+            const context = checkElement(contextKeywords, lowercasePrompt, 'Context');
+            const role = checkElement(roleKeywords, lowercasePrompt, 'Role');
+            const action = checkElement(actionKeywords, lowercasePrompt, 'Action');
+            const format = checkElement(formatKeywords, lowercasePrompt, 'Format');
+            const tone = checkElement(toneKeywords, lowercasePrompt, 'Tone');
+
+            // Calculate overall score
+            const scores = {
+                'present': 2,
+                'partial': 1,
+                'missing': 0
+            };
+            
+            const totalScore = scores[context.status] + scores[role.status] + scores[action.status] + 
+                             scores[format.status] + scores[tone.status];
+            const maxScore = 10;
+            const percentage = Math.round((totalScore / maxScore) * 100);
+
+            return {
+                context, role, action, format, tone,
+                totalScore, percentage,
+                overallFeedback: getOverallFeedback(percentage)
+            };
+        }
+
+        function getOverallFeedback(percentage) {
+            if (percentage >= 80) {
+                return "Excellent! This is a well-structured CRAFT prompt that should generate high-quality results.";
+            } else if (percentage >= 60) {
+                return "Good prompt with most CRAFT elements present. Small improvements could enhance results.";
+            } else if (percentage >= 40) {
+                return "Decent foundation, but missing some key CRAFT elements. Adding these will significantly improve results.";
+            } else {
+                return "This prompt needs significant improvement. Adding CRAFT elements will dramatically enhance AI performance.";
+            }
+        }
+
+        function displayResults(analysis) {
+            const resultsContainer = document.getElementById('results-container');
+            
+            resultsContainer.innerHTML = `
+                <div class="overall-score">
+                    <div class="score-number">${analysis.percentage}%</div>
+                    <div class="score-label">CRAFT Score</div>
+                    <p style="color: #cbd5e1; font-size: 14px; margin-top: 10px;">
+                        ${analysis.overallFeedback}
+                    </p>
+                </div>
+                
+                <div class="results-grid">
+                    ${createResultCard('C', 'Context', analysis.context)}
+                    ${createResultCard('R', 'Role', analysis.role)}
+                    ${createResultCard('A', 'Action', analysis.action)}
+                    ${createResultCard('F', 'Format', analysis.format)}
+                    ${createResultCard('T', 'Tone/Target', analysis.tone)}
+                </div>
+            `;
+        }
+
+        function createResultCard(letter, title, result) {
+            const statusIcons = {
+                'present': '✅',
+                'partial': '⚠️',
+                'missing': '❌'
+            };
+            
+            const statusLabels = {
+                'present': 'Present',
+                'partial': 'Partial',
+                'missing': 'Missing'
+            };
+            
+            return `
+                <div class="craft-result ${result.status}">
+                    <div class="result-header">
+                        <span class="result-icon">${letter}</span>
+                        <span class="result-title">${title}</span>
+                        <span class="result-status status-${result.status}">
+                            ${statusIcons[result.status]} ${statusLabels[result.status]}
+                        </span>
+                    </div>
+                    <div class="result-feedback">${result.feedback}</div>
+                </div>
+            `;
+        }
+
+        function tryExample(exampleText) {
+            document.getElementById('prompt-input').value = exampleText;
+            analyzePrompt();
+        }
+
+        // Auto-analyze on page load if there's content
+        document.addEventListener('DOMContentLoaded', function() {
+            const input = document.getElementById('prompt-input');
+            input.addEventListener('input', function() {
+                // Auto-analyze after user stops typing for 2 seconds
+                clearTimeout(this.timeout);
+                this.timeout = setTimeout(() => {
+                    if (input.value.trim().length > 20) {
+                        analyzePrompt();
+                    }
+                }, 2000);
+            });
+        });
+    </script>
+</body>
+</html>
