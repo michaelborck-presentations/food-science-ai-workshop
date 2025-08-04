@@ -1,0 +1,350 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Interactive Tools - Food Science AI Workshop</title>
+    <meta name="description" content="Hands-on tools for assessment, workflow practice, and skill development with immediate feedback.">
+    
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', system-ui, sans-serif;
+            background: linear-gradient(135deg, #0f172a 0%, #1e293b 100%);
+            color: #e2e8f0;
+            line-height: 1.6;
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+
+        .header {
+            text-align: center;
+            padding: 60px 0;
+            background: linear-gradient(135deg, rgba(59, 130, 246, 0.1) 0%, rgba(139, 92, 246, 0.1) 100%);
+        }
+
+        h1 {
+            font-size: 2.5rem;
+            margin-bottom: 20px;
+            background: linear-gradient(135deg, #3b82f6, #8b5cf6);
+            background-clip: text;
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            font-weight: 800;
+        }
+
+        .subtitle {
+            font-size: 1.2rem;
+            color: #94a3b8;
+            margin-bottom: 30px;
+        }
+
+        .back-link {
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+            background: rgba(59, 130, 246, 0.1);
+            color: #60a5fa;
+            padding: 10px 20px;
+            border-radius: 8px;
+            text-decoration: none;
+            font-weight: 500;
+            transition: all 0.3s ease;
+            margin-bottom: 40px;
+        }
+
+        .back-link:hover {
+            background: rgba(59, 130, 246, 0.2);
+            transform: translateY(-2px);
+        }
+
+        .tools-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+            gap: 30px;
+            margin: 40px 0;
+        }
+
+        .tool-card {
+            background: rgba(30, 41, 59, 0.7);
+            border: 1px solid #334155;
+            border-radius: 16px;
+            padding: 30px;
+            transition: all 0.3s ease;
+        }
+
+        .tool-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 20px 50px rgba(0, 0, 0, 0.3);
+            border-color: #3b82f6;
+        }
+
+        .tool-card.featured {
+            border-color: #10b981;
+            background: linear-gradient(135deg, rgba(16, 185, 129, 0.1), rgba(30, 41, 59, 0.7));
+        }
+
+        .tool-title {
+            font-size: 1.4rem;
+            font-weight: 600;
+            color: #f1f5f9;
+            margin-bottom: 15px;
+        }
+
+        .tool-card.featured .tool-title {
+            color: #10b981;
+        }
+
+        .tool-description {
+            color: #94a3b8;
+            margin-bottom: 20px;
+            line-height: 1.6;
+        }
+
+        .tool-features {
+            background: rgba(59, 130, 246, 0.1);
+            border-radius: 8px;
+            padding: 15px;
+            margin-bottom: 20px;
+        }
+
+        .tool-features h4 {
+            color: #60a5fa;
+            font-size: 14px;
+            margin-bottom: 8px;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+        }
+
+        .tool-features ul {
+            list-style: none;
+            color: #cbd5e1;
+        }
+
+        .tool-features li {
+            font-size: 14px;
+            margin-bottom: 4px;
+        }
+
+        .tool-features li:before {
+            content: "✓ ";
+            color: #10b981;
+            font-weight: bold;
+        }
+
+        .tool-button {
+            display: inline-block;
+            background: linear-gradient(135deg, #3b82f6, #1d4ed8);
+            color: white;
+            padding: 15px 30px;
+            border-radius: 10px;
+            text-decoration: none;
+            font-weight: 600;
+            font-size: 16px;
+            transition: all 0.3s ease;
+            text-align: center;
+            width: 100%;
+        }
+
+        .tool-button:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 15px 40px rgba(59, 130, 246, 0.3);
+        }
+
+        .tool-card.featured .tool-button {
+            background: linear-gradient(135deg, #10b981, #059669);
+        }
+
+        .tool-card.featured .tool-button:hover {
+            box-shadow: 0 15px 40px rgba(16, 185, 129, 0.3);
+        }
+
+        .workflow-guide {
+            background: rgba(30, 41, 59, 0.5);
+            border: 1px solid #334155;
+            border-radius: 16px;
+            padding: 30px;
+            margin: 40px 0;
+            text-align: center;
+        }
+
+        .workflow-guide h3 {
+            color: #f1f5f9;
+            margin-bottom: 20px;
+            font-size: 1.5rem;
+        }
+
+        .workflow-steps {
+            display: flex;
+            justify-content: center;
+            gap: 30px;
+            flex-wrap: wrap;
+            margin-top: 30px;
+        }
+
+        .workflow-step {
+            background: rgba(59, 130, 246, 0.1);
+            border: 1px solid rgba(59, 130, 246, 0.2);
+            border-radius: 12px;
+            padding: 20px;
+            text-align: center;
+            flex: 1;
+            min-width: 200px;
+            max-width: 250px;
+        }
+
+        .step-number {
+            display: inline-block;
+            background: linear-gradient(135deg, #3b82f6, #1d4ed8);
+            color: white;
+            width: 30px;
+            height: 30px;
+            border-radius: 50%;
+            line-height: 30px;
+            font-weight: bold;
+            margin-bottom: 10px;
+        }
+
+        .step-title {
+            color: #f1f5f9;
+            font-weight: 600;
+            margin-bottom: 8px;
+        }
+
+        .step-description {
+            color: #94a3b8;
+            font-size: 14px;
+        }
+
+        @media (max-width: 768px) {
+            h1 {
+                font-size: 2rem;
+            }
+            
+            .tools-grid {
+                grid-template-columns: 1fr;
+            }
+            
+            .workflow-steps {
+                flex-direction: column;
+                align-items: center;
+            }
+        }
+    </style>
+</head>
+<body>
+    <header class="header">
+        <div class="container">
+            <a href="../" class="back-link">
+                ← Back to Workshop
+            </a>
+            
+            <h1>🛠️ Interactive Tools</h1>
+            <p class="subtitle">
+                Hands-on tools for assessment, workflow practice, and skill development with immediate feedback
+            </p>
+        </div>
+    </header>
+
+    <main class="container">
+        <div class="tools-grid">
+            <div class="tool-card featured">
+                <h2 class="tool-title">🎯 AI Readiness Assessment</h2>
+                <p class="tool-description">
+                    Discover your current AI knowledge level and get personalized recommendations for your learning journey. Takes just 3 minutes!
+                </p>
+                
+                <div class="tool-features">
+                    <h4>Features</h4>
+                    <ul>
+                        <li>Personalized learning path</li>
+                        <li>Skill gap analysis</li>
+                        <li>Tool recommendations</li>
+                        <li>Progress tracking</li>
+                    </ul>
+                </div>
+                
+                <a href="./ai_readiness_quiz.html" class="tool-button">Start Assessment</a>
+            </div>
+
+            <div class="tool-card">
+                <h2 class="tool-title">🚀 Prompt Builder Tool</h2>
+                <p class="tool-description">
+                    Master the CRAFT framework with guided prompt construction, real-time feedback, and example templates for food science research.
+                </p>
+                
+                <div class="tool-features">
+                    <h4>Features</h4>
+                    <ul>
+                        <li>CRAFT framework guidance</li>
+                        <li>Template library</li>
+                        <li>Real-time validation</li>
+                        <li>Export functionality</li>
+                    </ul>
+                </div>
+                
+                <a href="./prompt_builder_tool.html" class="tool-button">Build Prompts</a>
+            </div>
+
+            <div class="tool-card">
+                <h2 class="tool-title">🔍 CRAFT Analyzer</h2>
+                <p class="tool-description">
+                    Analyze and improve your existing prompts using the CRAFT framework. Get specific suggestions for enhancement and optimization.
+                </p>
+                
+                <div class="tool-features">
+                    <h4>Features</h4>
+                    <ul>
+                        <li>Prompt analysis</li>
+                        <li>CRAFT scoring</li>
+                        <li>Improvement suggestions</li>
+                        <li>Before/after comparison</li>
+                    </ul>
+                </div>
+                
+                <a href="./craft_analyser.html" class="tool-button">Analyze Prompts</a>
+            </div>
+        </div>
+
+        <div class="workflow-guide">
+            <h3>🎓 Recommended Learning Workflow</h3>
+            <p style="color: #94a3b8; margin-bottom: 20px;">Follow this sequence for optimal learning outcomes</p>
+            
+            <div class="workflow-steps">
+                <div class="workflow-step">
+                    <div class="step-number">1</div>
+                    <div class="step-title">Assessment</div>
+                    <div class="step-description">Take the readiness quiz to understand your starting point</div>
+                </div>
+                
+                <div class="workflow-step">
+                    <div class="step-number">2</div>
+                    <div class="step-title">Learn Fundamentals</div>
+                    <div class="step-description">Study Session 1 presentation and practice with prompt builder</div>
+                </div>
+                
+                <div class="workflow-step">
+                    <div class="step-number">3</div>
+                    <div class="step-title">Hands-on Practice</div>
+                    <div class="step-description">Complete Session 2 and analyze prompts with CRAFT analyzer</div>
+                </div>
+            </div>
+        </div>
+
+        <div style="text-align: center; margin: 40px 0;">
+            <a href="../datasets/" class="tool-button" style="display: inline-block; width: auto; font-size: 16px; padding: 12px 24px;">
+                📊 Explore Practice Datasets
+            </a>
+        </div>
+    </main>
+</body>
+</html>

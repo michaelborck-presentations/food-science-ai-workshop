@@ -1,0 +1,244 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Advanced Resources - Food Science AI Workshop</title>
+    <meta name="description" content="Advanced guides and documentation for experienced users and research automation.">
+    
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', system-ui, sans-serif;
+            background: linear-gradient(135deg, #0f172a 0%, #1e293b 100%);
+            color: #e2e8f0;
+            line-height: 1.6;
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+
+        .header {
+            text-align: center;
+            padding: 60px 0;
+            background: linear-gradient(135deg, rgba(59, 130, 246, 0.1) 0%, rgba(139, 92, 246, 0.1) 100%);
+        }
+
+        h1 {
+            font-size: 2.5rem;
+            margin-bottom: 20px;
+            background: linear-gradient(135deg, #3b82f6, #8b5cf6);
+            background-clip: text;
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            font-weight: 800;
+        }
+
+        .subtitle {
+            font-size: 1.2rem;
+            color: #94a3b8;
+            margin-bottom: 30px;
+        }
+
+        .back-link {
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+            background: rgba(59, 130, 246, 0.1);
+            color: #60a5fa;
+            padding: 10px 20px;
+            border-radius: 8px;
+            text-decoration: none;
+            font-weight: 500;
+            transition: all 0.3s ease;
+            margin-bottom: 40px;
+        }
+
+        .back-link:hover {
+            background: rgba(59, 130, 246, 0.2);
+            transform: translateY(-2px);
+        }
+
+        .resources-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+            gap: 30px;
+            margin: 40px 0;
+        }
+
+        .resource-card {
+            background: rgba(30, 41, 59, 0.7);
+            border: 1px solid #334155;
+            border-radius: 16px;
+            padding: 30px;
+            transition: all 0.3s ease;
+        }
+
+        .resource-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 20px 50px rgba(0, 0, 0, 0.3);
+            border-color: #3b82f6;
+        }
+
+        .resource-title {
+            font-size: 1.3rem;
+            font-weight: 600;
+            color: #f1f5f9;
+            margin-bottom: 15px;
+        }
+
+        .resource-description {
+            color: #94a3b8;
+            margin-bottom: 20px;
+            line-height: 1.6;
+        }
+
+        .resource-links {
+            display: flex;
+            gap: 10px;
+            flex-wrap: wrap;
+        }
+
+        .resource-link {
+            display: inline-block;
+            background: linear-gradient(135deg, #3b82f6, #1d4ed8);
+            color: white;
+            padding: 8px 16px;
+            border-radius: 6px;
+            text-decoration: none;
+            font-size: 14px;
+            font-weight: 500;
+            transition: all 0.3s ease;
+        }
+
+        .resource-link:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 10px 30px rgba(59, 130, 246, 0.3);
+        }
+
+        .resource-link.secondary {
+            background: rgba(59, 130, 246, 0.1);
+            color: #3b82f6;
+            border: 1px solid rgba(59, 130, 246, 0.2);
+        }
+
+        .resource-link.secondary:hover {
+            background: rgba(59, 130, 246, 0.2);
+            color: #60a5fa;
+        }
+
+        .info-box {
+            background: rgba(16, 185, 129, 0.1);
+            border: 1px solid #10b981;
+            border-radius: 12px;
+            padding: 20px;
+            margin: 40px 0;
+            text-align: center;
+        }
+
+        .info-box h3 {
+            color: #10b981;
+            margin-bottom: 10px;
+        }
+
+        .info-box p {
+            color: #cbd5e1;
+            font-size: 14px;
+        }
+
+        @media (max-width: 768px) {
+            h1 {
+                font-size: 2rem;
+            }
+            
+            .resources-grid {
+                grid-template-columns: 1fr;
+            }
+        }
+    </style>
+</head>
+<body>
+    <header class="header">
+        <div class="container">
+            <a href="../" class="back-link">
+                ← Back to Workshop
+            </a>
+            
+            <h1>📖 Advanced Resources</h1>
+            <p class="subtitle">
+                In-depth guides and documentation for advanced AI research techniques
+            </p>
+        </div>
+    </header>
+
+    <main class="container">
+        <div class="resources-grid">
+            <div class="resource-card">
+                <h2 class="resource-title">🤖 Agent Creation Guide</h2>
+                <p class="resource-description">
+                    Comprehensive guide to creating multi-agent systems for automated research workflows. Covers advanced techniques, orchestration, and real-world implementations.
+                </p>
+                <div class="resource-links">
+                    <a href="./agent_creation_guide.html" class="resource-link">View HTML</a>
+                    <a href="./agent_creation_guide.pdf" class="resource-link secondary">Download PDF</a>
+                    <a href="./agent_creation_guide.md" class="resource-link secondary">View Markdown</a>
+                </div>
+            </div>
+
+            <div class="resource-card">
+                <h2 class="resource-title">📚 Complete Documentation</h2>
+                <p class="resource-description">
+                    Full project documentation including setup instructions, detailed methodology explanations, and contribution guidelines.
+                </p>
+                <div class="resource-links">
+                    <a href="https://github.com/michael-borck/food-science-ai-workshop/blob/main/README.md" class="resource-link">GitHub README</a>
+                    <a href="https://github.com/michael-borck/food-science-ai-workshop" class="resource-link secondary">Source Code</a>
+                </div>
+            </div>
+
+            <div class="resource-card">
+                <h2 class="resource-title">🔬 Research Methodologies</h2>
+                <p class="resource-description">
+                    Detailed breakdown of the 10-step research methodology with advanced applications and case studies from real food science research.
+                </p>
+                <div class="resource-links">
+                    <a href="../presentations/llm-research-presentation-2-md.html" class="resource-link">View Presentation</a>
+                    <a href="../interactive-tools/prompt_builder_tool.html" class="resource-link secondary">Practice Tool</a>
+                </div>
+            </div>
+
+            <div class="resource-card">
+                <h2 class="resource-title">⚙️ Integration Examples</h2>
+                <p class="resource-description">
+                    Code examples and templates for integrating AI workflows into existing research pipelines and laboratory management systems.
+                </p>
+                <div class="resource-links">
+                    <a href="https://github.com/michael-borck/food-science-ai-workshop/tree/main/datasets" class="resource-link">View Examples</a>
+                    <a href="../datasets/" class="resource-link secondary">Practice Data</a>
+                </div>
+            </div>
+        </div>
+
+        <div class="info-box">
+            <h3>🎓 Advanced Learning Path</h3>
+            <p>
+                These resources are designed for users who have mastered the basic workshop content and want to implement advanced AI research automation in their own projects.
+            </p>
+        </div>
+
+        <div style="text-align: center; margin: 40px 0;">
+            <a href="../interactive-tools/" class="resource-link" style="font-size: 16px; padding: 12px 24px;">
+                🛠️ Try Interactive Tools
+            </a>
+        </div>
+    </main>
+</body>
+</html>

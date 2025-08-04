@@ -1,0 +1,357 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Dataset Documentation - Food Science AI Workshop</title>
+    <meta name="description" content="Detailed documentation for all practice datasets used in the Food Science AI Workshop.">
+    
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', system-ui, sans-serif;
+            background: linear-gradient(135deg, #0f172a 0%, #1e293b 100%);
+            color: #e2e8f0;
+            line-height: 1.6;
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+
+        .header {
+            text-align: center;
+            padding: 60px 0;
+            background: linear-gradient(135deg, rgba(59, 130, 246, 0.1) 0%, rgba(139, 92, 246, 0.1) 100%);
+        }
+
+        h1 {
+            font-size: 2.5rem;
+            margin-bottom: 20px;
+            background: linear-gradient(135deg, #3b82f6, #8b5cf6);
+            background-clip: text;
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            font-weight: 800;
+        }
+
+        .subtitle {
+            font-size: 1.2rem;
+            color: #94a3b8;
+            margin-bottom: 30px;
+        }
+
+        .back-links {
+            display: flex;
+            justify-content: center;
+            gap: 20px;
+            flex-wrap: wrap;
+            margin-bottom: 40px;
+        }
+
+        .back-link {
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+            background: rgba(59, 130, 246, 0.1);
+            color: #60a5fa;
+            padding: 10px 20px;
+            border-radius: 8px;
+            text-decoration: none;
+            font-weight: 500;
+            transition: all 0.3s ease;
+        }
+
+        .back-link:hover {
+            background: rgba(59, 130, 246, 0.2);
+            transform: translateY(-2px);
+        }
+
+        .docs-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 30px;
+            margin: 40px 0;
+        }
+
+        .doc-card {
+            background: rgba(30, 41, 59, 0.7);
+            border: 1px solid #334155;
+            border-radius: 16px;
+            padding: 30px;
+            transition: all 0.3s ease;
+        }
+
+        .doc-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 20px 50px rgba(0, 0, 0, 0.3);
+            border-color: #3b82f6;
+        }
+
+        .doc-title {
+            font-size: 1.3rem;
+            font-weight: 600;
+            color: #f1f5f9;
+            margin-bottom: 15px;
+        }
+
+        .doc-description {
+            color: #94a3b8;
+            margin-bottom: 20px;
+            line-height: 1.6;
+        }
+
+        .doc-links {
+            display: flex;
+            gap: 10px;
+            flex-wrap: wrap;
+        }
+
+        .doc-link {
+            display: inline-block;
+            background: linear-gradient(135deg, #3b82f6, #1d4ed8);
+            color: white;
+            padding: 8px 16px;
+            border-radius: 6px;
+            text-decoration: none;
+            font-size: 14px;
+            font-weight: 500;
+            transition: all 0.3s ease;
+        }
+
+        .doc-link:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 10px 30px rgba(59, 130, 246, 0.3);
+        }
+
+        .doc-link.secondary {
+            background: rgba(59, 130, 246, 0.1);
+            color: #3b82f6;
+            border: 1px solid rgba(59, 130, 246, 0.2);
+        }
+
+        .doc-link.secondary:hover {
+            background: rgba(59, 130, 246, 0.2);
+            color: #60a5fa;
+        }
+
+        .markdown-viewer {
+            background: rgba(30, 41, 59, 0.7);
+            border: 1px solid #334155;
+            border-radius: 16px;
+            padding: 30px;
+            margin: 40px 0;
+            display: none;
+        }
+
+        .markdown-viewer.active {
+            display: block;
+        }
+
+        .markdown-viewer h1, .markdown-viewer h2, .markdown-viewer h3 {
+            color: #f1f5f9;
+            margin: 20px 0 15px 0;
+        }
+
+        .markdown-viewer h1 {
+            font-size: 1.8rem;
+            border-bottom: 2px solid #334155;
+            padding-bottom: 10px;
+        }
+
+        .markdown-viewer h2 {
+            font-size: 1.4rem;
+            color: #60a5fa;
+        }
+
+        .markdown-viewer h3 {
+            font-size: 1.2rem;
+        }
+
+        .markdown-viewer p {
+            margin-bottom: 15px;
+            color: #cbd5e1;
+        }
+
+        .markdown-viewer ul, .markdown-viewer ol {
+            margin: 15px 0 15px 30px;
+            color: #cbd5e1;
+        }
+
+        .markdown-viewer li {
+            margin-bottom: 5px;
+        }
+
+        .markdown-viewer strong {
+            color: #f1f5f9;
+        }
+
+        .markdown-viewer code {
+            background: rgba(59, 130, 246, 0.1);
+            color: #60a5fa;
+            padding: 2px 6px;
+            border-radius: 4px;
+            font-family: 'Courier New', monospace;
+        }
+
+        .close-button {
+            float: right;
+            background: rgba(239, 68, 68, 0.1);
+            color: #ef4444;
+            border: 1px solid rgba(239, 68, 68, 0.2);
+            padding: 8px 16px;
+            border-radius: 6px;
+            cursor: pointer;
+            font-size: 14px;
+            transition: all 0.3s ease;
+        }
+
+        .close-button:hover {
+            background: rgba(239, 68, 68, 0.2);
+            color: #f87171;
+        }
+
+        @media (max-width: 768px) {
+            h1 {
+                font-size: 2rem;
+            }
+            
+            .docs-grid {
+                grid-template-columns: 1fr;
+            }
+            
+            .back-links {
+                flex-direction: column;
+                align-items: center;
+            }
+        }
+    </style>
+</head>
+<body>
+    <header class="header">
+        <div class="container">
+            <div class="back-links">
+                <a href="../../" class="back-link">← Back to Workshop</a>
+                <a href="../" class="back-link">← Back to Datasets</a>
+            </div>
+            
+            <h1>📚 Dataset Documentation</h1>
+            <p class="subtitle">
+                Detailed information about each practice dataset including structure, variables, and research applications
+            </p>
+        </div>
+    </header>
+
+    <main class="container">
+        <div class="docs-grid">
+            <div class="doc-card">
+                <h2 class="doc-title">🥛 Fermentation Dataset</h2>
+                <p class="doc-description">
+                    Documentation for the oat milk fermentation study including experimental design, variables, and analysis suggestions.
+                </p>
+                <div class="doc-links">
+                    <button onclick="loadMarkdown('fermentation-dataset.md', this)" class="doc-link">View Documentation</button>
+                    <a href="../fermentation-dataset.csv" class="doc-link secondary">Download Data</a>
+                </div>
+            </div>
+
+            <div class="doc-card">
+                <h2 class="doc-title">📅 Shelf Life Dataset</h2>
+                <p class="doc-description">
+                    Documentation for the plant-based yogurt shelf life analysis including storage conditions and quality measurements.
+                </p>
+                <div class="doc-links">
+                    <button onclick="loadMarkdown('shelf-life-dataset.md', this)" class="doc-link">View Documentation</button>
+                    <a href="../shelf-life-dataset.csv" class="doc-link secondary">Download Data</a>
+                </div>
+            </div>
+
+            <div class="doc-card">
+                <h2 class="doc-title">👅 Sensory Panel Dataset</h2>
+                <p class="doc-description">
+                    Documentation for the consumer sensory evaluation of plant-based cheeses including demographic and preference data.
+                </p>
+                <div class="doc-links">
+                    <button onclick="loadMarkdown('sensory-panel-dataset.md', this)" class="doc-link">View Documentation</button>
+                    <a href="../sensory-panel-dataset.csv" class="doc-link secondary">Download Data</a>
+                </div>
+            </div>
+
+            <div class="doc-card">
+                <h2 class="doc-title">🧪 Process Optimization Dataset</h2>
+                <p class="doc-description">
+                    Documentation for the protein extraction optimization study using response surface methodology and design of experiments.
+                </p>
+                <div class="doc-links">
+                    <button onclick="loadMarkdown('process-optimization-dataset.md', this)" class="doc-link">View Documentation</button>
+                    <a href="../process-optimization-dataset.csv" class="doc-link secondary">Download Data</a>
+                </div>
+            </div>
+        </div>
+
+        <div id="markdown-viewer" class="markdown-viewer">
+            <button onclick="closeMarkdown()" class="close-button">✕ Close</button>
+            <div id="markdown-content"></div>
+        </div>
+    </main>
+
+    <script>
+        async function loadMarkdown(filename, button) {
+            try {
+                const response = await fetch(filename);
+                if (!response.ok) {
+                    throw new Error(`HTTP error! status: ${response.status}`);
+                }
+                const text = await response.text();
+                
+                // Simple markdown to HTML conversion
+                let html = text
+                    .replace(/^# (.*$)/gm, '<h1>$1</h1>')
+                    .replace(/^## (.*$)/gm, '<h2>$1</h2>')
+                    .replace(/^### (.*$)/gm, '<h3>$1</h3>')
+                    .replace(/^\- (.*$)/gm, '<li>$1</li>')
+                    .replace(/\*\*(.*?)\*\*/g, '<strong>$1</strong>')
+                    .replace(/`(.*?)`/g, '<code>$1</code>')
+                    .replace(/\n\n/g, '</p><p>')
+                    .replace(/(<li>.*<\/li>)/gs, '<ul>$1</ul>')
+                    .replace(/<\/li>\s*<ul>/g, '</li>')
+                    .replace(/<\/ul>\s*<li>/g, '<li>');
+                
+                // Wrap in paragraphs
+                if (!html.startsWith('<h1>') && !html.startsWith('<ul>')) {
+                    html = '<p>' + html + '</p>';
+                }
+                
+                document.getElementById('markdown-content').innerHTML = html;
+                document.getElementById('markdown-viewer').classList.add('active');
+                document.getElementById('markdown-viewer').scrollIntoView({ behavior: 'smooth' });
+                
+                // Update button text
+                button.textContent = 'Documentation Loaded ✓';
+                button.style.background = 'linear-gradient(135deg, #10b981, #059669)';
+                setTimeout(() => {
+                    button.textContent = 'View Documentation';
+                    button.style.background = '';
+                }, 2000);
+                
+            } catch (error) {
+                console.error('Error loading markdown:', error);
+                document.getElementById('markdown-content').innerHTML = 
+                    '<p style="color: #ef4444;">Error loading documentation. Please try downloading the file directly or contact support.</p>';
+                document.getElementById('markdown-viewer').classList.add('active');
+            }
+        }
+
+        function closeMarkdown() {
+            document.getElementById('markdown-viewer').classList.remove('active');
+        }
+    </script>
+</body>
+</html>

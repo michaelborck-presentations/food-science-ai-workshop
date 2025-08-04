@@ -1,0 +1,287 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Presentations - Food Science AI Workshop</title>
+    <meta name="description" content="Interactive presentations covering AI fundamentals and hands-on practice for food science research.">
+    
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', system-ui, sans-serif;
+            background: linear-gradient(135deg, #0f172a 0%, #1e293b 100%);
+            color: #e2e8f0;
+            line-height: 1.6;
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+
+        .header {
+            text-align: center;
+            padding: 60px 0;
+            background: linear-gradient(135deg, rgba(59, 130, 246, 0.1) 0%, rgba(139, 92, 246, 0.1) 100%);
+        }
+
+        h1 {
+            font-size: 2.5rem;
+            margin-bottom: 20px;
+            background: linear-gradient(135deg, #3b82f6, #8b5cf6);
+            background-clip: text;
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            font-weight: 800;
+        }
+
+        .subtitle {
+            font-size: 1.2rem;
+            color: #94a3b8;
+            margin-bottom: 30px;
+        }
+
+        .back-link {
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+            background: rgba(59, 130, 246, 0.1);
+            color: #60a5fa;
+            padding: 10px 20px;
+            border-radius: 8px;
+            text-decoration: none;
+            font-weight: 500;
+            transition: all 0.3s ease;
+            margin-bottom: 40px;
+        }
+
+        .back-link:hover {
+            background: rgba(59, 130, 246, 0.2);
+            transform: translateY(-2px);
+        }
+
+        .presentations-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(400px, 1fr));
+            gap: 30px;
+            margin: 40px 0;
+        }
+
+        .presentation-card {
+            background: rgba(30, 41, 59, 0.7);
+            border: 1px solid #334155;
+            border-radius: 16px;
+            padding: 30px;
+            transition: all 0.3s ease;
+        }
+
+        .presentation-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 20px 50px rgba(0, 0, 0, 0.3);
+            border-color: #3b82f6;
+        }
+
+        .presentation-title {
+            font-size: 1.4rem;
+            font-weight: 600;
+            color: #f1f5f9;
+            margin-bottom: 15px;
+        }
+
+        .presentation-description {
+            color: #94a3b8;
+            margin-bottom: 20px;
+            line-height: 1.6;
+        }
+
+        .presentation-topics {
+            background: rgba(59, 130, 246, 0.1);
+            border-radius: 8px;
+            padding: 15px;
+            margin-bottom: 20px;
+        }
+
+        .presentation-topics h4 {
+            color: #60a5fa;
+            font-size: 14px;
+            margin-bottom: 8px;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+        }
+
+        .presentation-topics ul {
+            list-style: none;
+            color: #cbd5e1;
+        }
+
+        .presentation-topics li {
+            font-size: 14px;
+            margin-bottom: 4px;
+        }
+
+        .presentation-topics li:before {
+            content: "→ ";
+            color: #60a5fa;
+            font-weight: bold;
+        }
+
+        .presentation-links {
+            display: flex;
+            gap: 10px;
+            flex-wrap: wrap;
+        }
+
+        .presentation-link {
+            display: inline-block;
+            background: linear-gradient(135deg, #3b82f6, #1d4ed8);
+            color: white;
+            padding: 10px 16px;
+            border-radius: 6px;
+            text-decoration: none;
+            font-size: 14px;
+            font-weight: 500;
+            transition: all 0.3s ease;
+        }
+
+        .presentation-link:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 10px 30px rgba(59, 130, 246, 0.3);
+        }
+
+        .presentation-link.primary {
+            background: linear-gradient(135deg, #10b981, #059669);
+            font-size: 16px;
+            padding: 12px 20px;
+        }
+
+        .presentation-link.secondary {
+            background: rgba(59, 130, 246, 0.1);
+            color: #3b82f6;
+            border: 1px solid rgba(59, 130, 246, 0.2);
+        }
+
+        .presentation-link.secondary:hover {
+            background: rgba(59, 130, 246, 0.2);
+            color: #60a5fa;
+        }
+
+        .info-box {
+            background: rgba(16, 185, 129, 0.1);
+            border: 1px solid #10b981;
+            border-radius: 12px;
+            padding: 20px;
+            margin: 40px 0;
+            text-align: center;
+        }
+
+        .info-box h3 {
+            color: #10b981;
+            margin-bottom: 10px;
+        }
+
+        .info-box p {
+            color: #cbd5e1;
+            font-size: 14px;
+        }
+
+        @media (max-width: 768px) {
+            h1 {
+                font-size: 2rem;
+            }
+            
+            .presentations-grid {
+                grid-template-columns: 1fr;
+            }
+        }
+    </style>
+</head>
+<body>
+    <header class="header">
+        <div class="container">
+            <a href="../" class="back-link">
+                ← Back to Workshop
+            </a>
+            
+            <h1>🎭 Workshop Presentations</h1>
+            <p class="subtitle">
+                Interactive slide presentations covering AI fundamentals and hands-on research workflows
+            </p>
+        </div>
+    </header>
+
+    <main class="container">
+        <div class="presentations-grid">
+            <div class="presentation-card">
+                <h2 class="presentation-title">🎓 Session 1: AI Fundamentals</h2>
+                <p class="presentation-description">
+                    Master the foundations of AI-assisted research including LLM capabilities, limitations, and the critical importance of verification in academic work.
+                </p>
+                
+                <div class="presentation-topics">
+                    <h4>Key Topics</h4>
+                    <ul>
+                        <li>LLM capabilities and limitations</li>
+                        <li>The hallucination problem</li>
+                        <li>CRAFT prompting framework</li>
+                        <li>Research integrity and ethics</li>
+                        <li>Tool selection and evaluation</li>
+                    </ul>
+                </div>
+                
+                <div class="presentation-links">
+                    <a href="./llm-research-presentation-1-md.html" class="presentation-link primary">View Interactive Slides</a>
+                    <a href="./llm-research-presentation-1-md.pdf" class="presentation-link secondary">Download PDF</a>
+                    <a href="../audio-guides/llm-research-presentation-1-md.m4a" class="presentation-link secondary">Audio Guide</a>
+                </div>
+            </div>
+
+            <div class="presentation-card">
+                <h2 class="presentation-title">🛠️ Session 2: Hands-on Practice</h2>
+                <p class="presentation-description">
+                    Apply the 10-step research methodology with real datasets, practice advanced prompting techniques, and build your own AI research workflow.
+                </p>
+                
+                <div class="presentation-topics">
+                    <h4>Key Topics</h4>
+                    <ul>
+                        <li>10-step research methodology</li>
+                        <li>Advanced CRAFT techniques</li>
+                        <li>Dataset analysis walkthrough</li>
+                        <li>Tool integration strategies</li>
+                        <li>Publication and collaboration</li>
+                    </ul>
+                </div>
+                
+                <div class="presentation-links">
+                    <a href="./llm-research-presentation-2-md.html" class="presentation-link primary">View Interactive Slides</a>
+                    <a href="./llm-research-presentation-2-md.pdf" class="presentation-link secondary">Download PDF</a>
+                    <a href="../audio-guides/llm-research-presentation-2-md.m4a" class="presentation-link secondary">Audio Guide</a>
+                </div>
+            </div>
+        </div>
+
+        <div class="info-box">
+            <h3>💡 Learning Path Recommendation</h3>
+            <p>
+                Start with Session 1 to build your foundation, then move to Session 2 for hands-on practice. Use the interactive tools alongside each session for optimal learning.
+            </p>
+        </div>
+
+        <div style="text-align: center; margin: 40px 0; display: flex; gap: 20px; justify-content: center; flex-wrap: wrap;">
+            <a href="../interactive-tools/ai_readiness_quiz.html" class="presentation-link" style="font-size: 16px; padding: 12px 24px;">
+                🎯 Take Readiness Quiz
+            </a>
+            <a href="../interactive-tools/prompt_builder_tool.html" class="presentation-link secondary" style="font-size: 16px; padding: 12px 24px;">
+                🛠️ Try Prompt Builder
+            </a>
+        </div>
+    </main>
+</body>
+</html>

@@ -1,0 +1,243 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Practice Datasets - Food Science AI Workshop</title>
+    <meta name="description" content="Realistic synthetic datasets for learning AI research workflows in food science.">
+    
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', system-ui, sans-serif;
+            background: linear-gradient(135deg, #0f172a 0%, #1e293b 100%);
+            color: #e2e8f0;
+            line-height: 1.6;
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+
+        .header {
+            text-align: center;
+            padding: 60px 0;
+            background: linear-gradient(135deg, rgba(59, 130, 246, 0.1) 0%, rgba(139, 92, 246, 0.1) 100%);
+        }
+
+        h1 {
+            font-size: 2.5rem;
+            margin-bottom: 20px;
+            background: linear-gradient(135deg, #3b82f6, #8b5cf6);
+            background-clip: text;
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            font-weight: 800;
+        }
+
+        .subtitle {
+            font-size: 1.2rem;
+            color: #94a3b8;
+            margin-bottom: 30px;
+        }
+
+        .back-link {
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+            background: rgba(59, 130, 246, 0.1);
+            color: #60a5fa;
+            padding: 10px 20px;
+            border-radius: 8px;
+            text-decoration: none;
+            font-weight: 500;
+            transition: all 0.3s ease;
+            margin-bottom: 40px;
+        }
+
+        .back-link:hover {
+            background: rgba(59, 130, 246, 0.2);
+            transform: translateY(-2px);
+        }
+
+        .datasets-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 30px;
+            margin: 40px 0;
+        }
+
+        .dataset-card {
+            background: rgba(30, 41, 59, 0.7);
+            border: 1px solid #334155;
+            border-radius: 16px;
+            padding: 30px;
+            transition: all 0.3s ease;
+        }
+
+        .dataset-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 20px 50px rgba(0, 0, 0, 0.3);
+            border-color: #3b82f6;
+        }
+
+        .dataset-title {
+            font-size: 1.3rem;
+            font-weight: 600;
+            color: #f1f5f9;
+            margin-bottom: 15px;
+        }
+
+        .dataset-description {
+            color: #94a3b8;
+            margin-bottom: 20px;
+            line-height: 1.6;
+        }
+
+        .dataset-links {
+            display: flex;
+            gap: 10px;
+            flex-wrap: wrap;
+        }
+
+        .dataset-link {
+            display: inline-block;
+            background: linear-gradient(135deg, #3b82f6, #1d4ed8);
+            color: white;
+            padding: 8px 16px;
+            border-radius: 6px;
+            text-decoration: none;
+            font-size: 14px;
+            font-weight: 500;
+            transition: all 0.3s ease;
+        }
+
+        .dataset-link:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 10px 30px rgba(59, 130, 246, 0.3);
+        }
+
+        .dataset-link.secondary {
+            background: rgba(59, 130, 246, 0.1);
+            color: #3b82f6;
+            border: 1px solid rgba(59, 130, 246, 0.2);
+        }
+
+        .dataset-link.secondary:hover {
+            background: rgba(59, 130, 246, 0.2);
+            color: #60a5fa;
+        }
+
+        .info-box {
+            background: rgba(16, 185, 129, 0.1);
+            border: 1px solid #10b981;
+            border-radius: 12px;
+            padding: 20px;
+            margin: 40px 0;
+            text-align: center;
+        }
+
+        .info-box h3 {
+            color: #10b981;
+            margin-bottom: 10px;
+        }
+
+        .info-box p {
+            color: #cbd5e1;
+            font-size: 14px;
+        }
+
+        @media (max-width: 768px) {
+            h1 {
+                font-size: 2rem;
+            }
+            
+            .datasets-grid {
+                grid-template-columns: 1fr;
+            }
+        }
+    </style>
+</head>
+<body>
+    <header class="header">
+        <div class="container">
+            <a href="../" class="back-link">
+                ← Back to Workshop
+            </a>
+            
+            <h1>📊 Practice Datasets</h1>
+            <p class="subtitle">
+                Realistic synthetic datasets designed specifically for learning AI research workflows
+            </p>
+        </div>
+    </header>
+
+    <main class="container">
+        <div class="datasets-grid">
+            <div class="dataset-card">
+                <h2 class="dataset-title">🥛 Fermentation Study</h2>
+                <p class="dataset-description">
+                    Oat milk fermentation with probiotics over 48 hours. Includes pH, temperature, LAB counts, viscosity, protein, lactic acid, and sensory scores across 4 treatments and 9 time points.
+                </p>
+                <div class="dataset-links">
+                    <a href="./fermentation-dataset.csv" class="dataset-link">Download CSV</a>
+                    <a href="./data-descriptions/fermentation-dataset.md" class="dataset-link secondary">View Documentation</a>
+                </div>
+            </div>
+
+            <div class="dataset-card">
+                <h2 class="dataset-title">📅 Shelf Life Analysis</h2>
+                <p class="dataset-description">
+                    Plant-based yogurt quality assessment over 28 days. Tracks microbial counts, pH, texture, color, and sensory properties under different storage conditions.
+                </p>
+                <div class="dataset-links">
+                    <a href="./shelf-life-dataset.csv" class="dataset-link">Download CSV</a>
+                    <a href="./data-descriptions/shelf-life-dataset.md" class="dataset-link secondary">View Documentation</a>
+                </div>
+            </div>
+
+            <div class="dataset-card">
+                <h2 class="dataset-title">👅 Sensory Panel Data</h2>
+                <p class="dataset-description">
+                    Consumer preferences for plant-based cheeses from 100 participants. Includes demographic data, taste ratings, texture preferences, and purchase intentions.
+                </p>
+                <div class="dataset-links">
+                    <a href="./sensory-panel-dataset.csv" class="dataset-link">Download CSV</a>
+                    <a href="./data-descriptions/sensory-panel-dataset.md" class="dataset-link secondary">View Documentation</a>
+                </div>
+            </div>
+
+            <div class="dataset-card">
+                <h2 class="dataset-title">🧪 Process Optimization</h2>
+                <p class="dataset-description">
+                    Protein extraction parameter optimization using response surface methodology. Varies temperature, pH, and time to maximize protein yield and minimize degradation.
+                </p>
+                <div class="dataset-links">
+                    <a href="./process-optimization-dataset.csv" class="dataset-link">Download CSV</a>
+                    <a href="./data-descriptions/process-optimization-dataset.md" class="dataset-link secondary">View Documentation</a>
+                </div>
+            </div>
+        </div>
+
+        <div class="info-box">
+            <h3>🔬 Why Synthetic Data?</h3>
+            <p>
+                These datasets are scientifically realistic but completely artificial, designed for optimal learning without ethical concerns, confidentiality issues, or real-world data messiness. Perfect for practicing AI research workflows!
+            </p>
+        </div>
+
+        <div style="text-align: center; margin: 40px 0;">
+            <a href="./data-descriptions/" class="dataset-link" style="font-size: 16px; padding: 12px 24px;">
+                📚 Browse All Documentation
+            </a>
+        </div>
+    </main>
+</body>
+</html>
